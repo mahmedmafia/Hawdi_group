@@ -30,24 +30,6 @@ export abstract class BaseForm {
     confirmValue:"this field does not match ",
     complexPassword:'Password should contain at least one capital letter, a number, a special character',
   }
-  public validationMsgAr = {
-    required: "مطلوب",
-    invalidEmail: "أدخل بريدًا إلكترونيًا صالحًا",
-    empty: "لا يمكن ان يكون فارغا",
-    minLength: "لا يمكن أن يكون أقل من ",
-    maxLength: "لا يمكن أن يكون أكثر من ",
-    pattern: "تنسيق الـغير صحيح",
-    min: "لا يمكن أن يكون أقل من ",
-    max: "لا يمكن أن يكون أكثر من ",
-    invalidDate: "تاريخ انتهاء صلاحية غير صالح",
-    dateInTheFuture: "التاريخ غير صالح (يجب أن يكون في المستقبل)",
-    notInPattern: "لا يمكن أن تكون أرقامًا فقط",
-    requiredNumber: "يجب أن يكون رقمًا",
-    requiredFloat: "يجب أن يكون رقمًا بين 0 و 1",
-    textOnly: "يجب أن يحتوي على أحرف فقط",
-    lessThanOtherField: "يجب أن يكون رقمًا أصغر من أو يساوي ",
-    moreThanOtherField: "يجب أن يكون رقمًا أكبر من ",
-  }
 
   constructor() { }
 

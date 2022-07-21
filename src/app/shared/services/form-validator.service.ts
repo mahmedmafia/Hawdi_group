@@ -84,17 +84,7 @@ export class FormValidatorService {
     if (!this.validationMessages.hasOwnProperty(fieldName)) {
       this.validationMessages[fieldName] = {};
     }
-    let language;
-    if (localStorage.getItem("language")) {
-      language = localStorage.getItem("language")
-      if (language === 'en' || !messageAr) {
-        this.validationMessages[fieldName][errorName] = message;
-      } else if (language === 'ar' && messageAr) {
-        this.validationMessages[fieldName][errorName] = messageAr;
-      }
-    } else {
       this.validationMessages[fieldName][errorName] = message;
-    }
   }
   public addValidation(controlName:string,name:any,value:string | number){
     // @ts-ignore
