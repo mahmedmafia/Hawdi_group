@@ -1,0 +1,31 @@
+<div id="login" class="w-100">
+  <h4 class="text-center text-secondary mb-4">Welocme to</h4>
+  <h1 class="text-center mb-5 ">Hwadi <b>GO</b></h1>
+
+
+  <form *ngIf="loginForm" [formGroup]="loginForm" (submit)="onSubmit()" class="mt-5" style="width:90%;margin:auto">
+      <app-outline-input class=" mb-4" [placeErrorBottom]="true"  [fieldObject]="convertFieldObject('phone')"
+      [fieldErrors]="formValidator.formErrors" [formControlRef]="convertFormControl('phone')">
+    </app-outline-input>
+    <app-outline-input class=" mb-4"  [placeErrorBottom]="true"  [fieldObject]="convertFieldObject('password')"
+      [fieldErrors]="formValidator.formErrors" [formControlRef]="convertFormControl('password')">
+    </app-outline-input>
+    <div class="row justify-content-center">
+      <div class=" col-12 col-md-10 mx-auto ">
+        <div class="btn-group d-flex my-3" style="gap: 20px">
+          <button class="btn btn-block btn-secondary rounded-pill text-primary" [disabled]="loginForm.invalid"
+            type="submit">
+            Login
+          </button>
+          <button *ngIf="loginForm.dirty" type="button" class="btn btn-small btn-danger rounded-pill text-primary" (click)="clearForm()">
+            X
+          </button>
+        </div>
+        <div class="d-flex flex-column justify-content-center align-center mt-4">
+          <p class="mb-3">Don't Have an Account</p>
+          <a class="text-secondary" style="text-decoration:underline ;" [routerLink]="['/auth/register']">Register</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

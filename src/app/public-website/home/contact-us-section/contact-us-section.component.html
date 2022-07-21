@@ -1,0 +1,18 @@
+<section class="about">
+  <div class="img-overlay"></div>
+
+  <div class="container">
+    <div class="section-container">
+      <h2 class="title">Contact Us</h2>
+      <p class="info">We want to hear from you, please use this form to reach to us...</p>
+      <form *ngIf="contactUsForm" [formGroup]="contactUsForm">
+        <input type="text" placeholder="Name">
+        <input type="tel" placeholder="Phone No">
+        <input type="text" placeholder="Subject">
+        <input type="email" placeholder="Email">
+        <textarea placeholder="Message" rows="5" cols="50"></textarea>
+      </form>
+      <button class="btn action-btn" style="min-width:150px">Send</button>
+    </div>
+  </div>
+</section>

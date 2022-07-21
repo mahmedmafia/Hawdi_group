@@ -1,0 +1,34 @@
+@import "../../../../assets/theme.scss";
+@import "../../../../assets/home.scss";
+section{
+  color:$baseColor !important;
+  .service-Info{
+    display: grid;
+    grid-template-columns: 1.5fr .2fr 2fr;
+
+    .image-container{
+      img{
+        width:100%;
+        height: 100%;
+      }
+    }
+    .info{
+      grid-column-start: 3;
+      font-size: 18px !important;
+    }
+  }
+}
+@media screen and (max-width:768px) {
+  .service-Info{
+    grid-template-columns: 1fr !important;
+    >div{
+      width:100%;
+      &:first-child{
+        margin-bottom: 50px;
+      }
+    }
+  }
+  .info{
+    grid-column-start: 1 !important;
+  }
+}

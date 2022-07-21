@@ -1,0 +1,21 @@
+.select-container{
+  position: relative;
+  &::before{
+    content: "";
+    position: absolute;
+    font-family: "FontAwesome";
+    top: 0;
+    right: 10%;
+    font-size: 2em;
+    z-index: 5;
+    pointer-events: none;
+    color:white;
+
+  }
+}
+select{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}

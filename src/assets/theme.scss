@@ -1,0 +1,29 @@
+$baseColor:#DCDBDE;
+$light-baseColor:#FFFF;
+$secondaryColor:#08B119;
+$baseColorDark:#0E0E0E;
+$fontSize:26px;
+$light-baseColorDark:#272727;
+$actionBtnRadius:48px;
+$baseErrorColor:#B10808;
+
+@mixin backgroundTheme {
+  background-color: $light-baseColorDark;
+  color:$baseColor;
+}
+@mixin actionButton{
+  border-radius: $actionBtnRadius;
+  cursor: pointer;
+}
+@mixin baseInput{
+  width: 100%;
+  padding: 10px 2px;
+
+}
+@mixin outLineInput {
+  @include baseInput;
+  background: transparent;
+  border: 0px;
+  border-bottom: 2px solid $baseColorDark;
+  font-size:1.2rem;
+}

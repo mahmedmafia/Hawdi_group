@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Hwadi-FrontEnd": {
+    "my-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/Hwadi-FrontEnd",
+            "outputPath": "dist/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -31,9 +31,22 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/font-awesome/css/font-awesome.css",
+              "src/assets/web/assets/mobirise-icons2/mobirise2.css",
+              "src/assets/web/assets/mobirise-icons/mobirise-icons.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/assets/animatecss/animate.css",
+              "src/assets/dropdown/css/style.css",
+              "src/assets/socicon/css/styles.css",
+              "src/assets/theme/css/style.css",
+              "src/assets/mobirise/css/mbr-additional.scss",
+              "src/assets/theme.scss",
+              "src/assets/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -72,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "Hwadi-FrontEnd:build:production"
+              "browserTarget": "my-app:build:production"
             },
             "development": {
-              "browserTarget": "Hwadi-FrontEnd:build:development"
+              "browserTarget": "my-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "Hwadi-FrontEnd:build"
+            "browserTarget": "my-app:build"
           }
         },
         "test": {
@@ -107,5 +120,5 @@
       }
     }
   },
-  "defaultProject": "Hwadi-FrontEnd"
+  "defaultProject": "my-app"
 }

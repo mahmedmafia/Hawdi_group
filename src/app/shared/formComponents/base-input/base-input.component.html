@@ -1,0 +1,7 @@
+<div  class="col-12 form-group">
+  <label> {{fieldObject.displayName}}</label>
+  <input [type]="fieldObject.fieldType" [formControl]="formControlRef">
+  <span class="text-danger" *ngIf="fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName]">
+    {{ fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName] }}
+  </span>
+</div>

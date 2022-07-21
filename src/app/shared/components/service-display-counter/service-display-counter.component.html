@@ -1,0 +1,28 @@
+<div class="header-bottom">
+  <div class="bg-overlay"> </div>
+  <div class="container">
+    <div class="bottom-container">
+      <div *ngIf="serviceName" id="service">
+        <h2 class="title text-primary">{{serviceName}}</h2>
+        <button class="btn btn-lg btn-secondary">Book a Service</button>
+      </div>
+      <div class="counter-container">
+        <div class="counter-chart">
+          <div class="number text-primary">
+            <span>{{countNumber}}</span>
+          </div>
+        </div>
+        <div class="counter-info">
+          <h4 class="title text-secondary">Requests Counter</h4>
+          <p class="display-6 ">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+            laudantium</p>
+        </div>
+      </div>
+      <div>
+        <h4 class="title text-secondary">Trend Services</h4>
+        <p class="display-6 ">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+          laudantium</p>
+      </div>
+    </div>
+  </div>
+</div>

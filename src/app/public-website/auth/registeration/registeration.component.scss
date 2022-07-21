@@ -1,0 +1,42 @@
+@import "../../../../assets/home.scss";
+@import "../../../../assets/theme.scss";
+:host{
+  width: 100%;
+}
+.radioQuestion {
+  font-size: 19px;
+}
+#userType {
+  font-size: 18px;
+}
+
+#submitBtn {
+  background-color: $secondaryColor;
+  &.disabled {
+    background-color: #bababb;
+  }
+}
+.btn-group{
+  display: flex;
+  gap:20px;
+}
+@media (max-width: 768px) {
+  .radioQuestion {
+    font-size: 16px !important;
+  }
+  #userType {
+    font-size: 16px !important;
+  }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1400px) {
+  .radioQuestion {
+    font-size: 14px;
+  }
+  #userType {
+    font-size: 14px !important;
+  }
+  .terms {
+    font-size: 17px !important;
+  }
+}

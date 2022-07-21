@@ -1,0 +1,50 @@
+<div id="register" class="w-100"> <h1 class="text-center text-secondary mb-5">Welcome</h1>
+<form *ngIf="registerationForm" [formGroup]="registerationForm" (submit)="onSubmit()">
+  <app-outline-input class="mb-4" [fieldObject]="convertFieldObject('name')" [fieldErrors]="formValidator.formErrors"
+    [formControlRef]="convertFormControl('name')">
+  </app-outline-input>
+  <app-outline-input class="mb-4" [fieldObject]="convertFieldObject('phone')" [fieldErrors]="formValidator.formErrors"
+    [formControlRef]="convertFormControl('phone')">
+  </app-outline-input>
+  <app-outline-input class="mb-4" [fieldObject]="convertFieldObject('email')" [fieldErrors]="formValidator.formErrors"
+    [formControlRef]="convertFormControl('email')">
+  </app-outline-input>
+  <div class="row mb-4">
+    <span class="col-3 radioQuestion"> Are You ?</span>
+    <div class="col-9">
+      <app-radio class="mb-4" id="userType" [fieldObject]="convertFieldObject('userType')"
+        [fieldErrors]="formValidator.formErrors" [formControlRef]="convertFormControl('userType')">
+      </app-radio>
+      <app-outline-input *ngIf="selectedUserType==userTypeEnum.Entity" [fieldObject]="convertFieldObject('companyName')"
+        [fieldErrors]="formValidator.formErrors" [formControlRef]="convertFormControl('companyName')">
+      </app-outline-input>
+      <div *ngIf="selectedUserType==userTypeEnum.GovernmentSector">
+        <app-select-list [fieldObject]="convertFieldObject('authority')" [fieldErrors]="formValidator.formErrors"
+          [formControlRef]="convertFormControl('authority')" [isDefaultLabelOption]="true">
+          <ng-container defaultLabelOption>Chose Authority</ng-container>
+        </app-select-list>
+      </div>
+    </div>
+  </div>
+
+  <app-outline-input class=" mb-4"  [placeErrorBottom]="true" [fieldObject]="convertFieldObject('NationalUnifiedNo')"
+    [fieldErrors]="formValidator.formErrors" [formControlRef]="convertFormControl('NationalUnifiedNo')">
+  </app-outline-input>
+  <app-outline-input class=" mb-4" [placeErrorBottom]="true"  [fieldObject]="convertFieldObject('password')"
+    [fieldErrors]="formValidator.formErrors" [formControlRef]="convertFormControl('password')">
+  </app-outline-input>
+  <app-outline-input class=" mb-4"  [placeErrorBottom]="true"  [fieldObject]="convertFieldObject('confirmPassword')"
+    [fieldErrors]="formValidator.formErrors" [formControlRef]="convertFormControl('confirmPassword')">
+  </app-outline-input>
+  <app-radio class="mb-3" id="terms" [fieldObject]="convertFieldObject('policy')"
+    [fieldErrors]="formValidator.formErrors" [formControlRef]="convertFormControl('policy')"></app-radio>
+  <div class="row justify-content-center">
+    <div class=" col-12 col-md-10 mx-auto btn-group">
+      <button id="submitBtn" class="btn btn-block rounded-pill text-primary mr-3"
+        [ngClass]="{'disabled':registerationForm.invalid}" [disabled]="registerationForm.invalid"
+        type="submit">Register</button>
+      <button type="button" class="btn btn-small btn-danger rounded-pill text-primary" *ngIf="registerationForm.dirty" (click)="clearForm()">X</button>
+    </div>
+  </div>
+</form>
+</div>

@@ -1,0 +1,35 @@
+<section class="services-guide">
+
+  <div class="container">
+    <div class="section-container">
+      <h2 class="title">Testimonial</h2>
+      <owl-carousel-o [options]="options" #owlCar class="testimonial-slider">
+        <ng-container *ngFor="let slider of testimonialSliders">
+          <ng-template carouselSlide>
+            <div class="card text-center">
+              <div class="image-container">
+              <img class="rounded-circle" src="../../../assets/3347022_orig.jpg" alt="Card image cap">
+              </div>
+              <div class="card-body">
+                  <div class="card-title">
+                    <h4 id="client">{{slider.clientName}}</h4>
+                    <h5 id="company">{{slider.companyName}}</h5>
+                  </div>
+                  <div class="card-text">
+                   {{slider.desc}}
+                  </div>
+              </div>
+              <div class="card-footer">
+                <span class="review" *ngFor="let item of [].constructor(slider.reviewNum)" >
+                  <i class="fa fa-star "></i>
+                </span>
+              </div>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
+
+

@@ -1,0 +1,44 @@
+@import "../../../../assets/theme.scss";
+.form-group {
+  position: relative;
+  #eyeIcon-container {
+    position: absolute;
+    top: 0;
+    right: 10%;
+    font-size: 2em;
+    z-index: 5;
+    color: black;
+    cursor: pointer;
+    &:hover {
+      color: red;
+    }
+  }
+  input {
+    @include outLineInput;
+    padding-top: 10px;
+    font-size: 1.2rem;
+    &.ng-touched.ng-dirty.ng-invalid {
+      // border-color:$baseErrorColor;
+      color: $baseErrorColor;
+    }
+    &.textCenter {
+      text-align: center;
+      padding-left: 0px;
+    }
+  }
+  &:not(.error-middle) span.text-danger {
+    display: inline-block;
+    margin-top: 10px;
+  }
+  &.error-middle {
+    position: relative;
+    span.text-danger {
+      position: absolute;
+      right: 0;
+      top: 10%;
+      font-size: 15px;
+      padding-top: 10px;
+      margin-top: 0px;
+    }
+  }
+}

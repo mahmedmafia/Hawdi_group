@@ -1,0 +1,12 @@
+
+<div class="form-group radio-group" >
+  <ng-container *ngFor="let fieldValue of fieldObject.fieldValues" >
+      <span>
+      <input type="radio" [formControl]="formControlRef" [name]="fieldObject.fieldName" [value]="fieldValue.value">
+      <label>{{fieldValue?.name? fieldValue.name:fieldValue.value}}</label>
+    </span>
+  </ng-container>
+<span class="text-danger" *ngIf="fieldErrors[fieldObject.fieldName]|| fieldErrors[fieldErrorName]">
+{{ fieldErrors[fieldObject.fieldName]|| fieldErrors[fieldErrorName] }}
+  </span>
+</div>

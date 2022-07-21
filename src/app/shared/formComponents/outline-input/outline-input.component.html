@@ -1,0 +1,17 @@
+<div class="form-group" [ngClass]="{ 'error-middle': !placeErrorBottom }">
+  <span id="eyeIcon-container" (click)="onEyeClick()" *ngIf="isInputPassword">
+    <i class="fa" [ngClass]="!showPassword?'fa-eye-slash':'fa-eye'"></i>
+  </span>
+  <input
+    [type]="fieldObject.fieldType"
+    [formControl]="formControlRef"
+    placeholder="{{ fieldObject.displayName }}"
+    [ngClass]="{ 'textCenter': textCenter }"
+  />
+  <span
+    class="text-danger"
+    *ngIf="fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName]"
+  >
+    {{ fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName] }}
+  </span>
+</div>

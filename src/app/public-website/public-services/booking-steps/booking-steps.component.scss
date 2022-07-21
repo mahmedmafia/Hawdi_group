@@ -1,0 +1,136 @@
+@import "../../../../assets/home.scss";
+@import "../../../../assets/theme.scss";
+section {
+  .bottom-info{
+    margin: auto;
+    text-align: center;
+    margin-top: 80px;
+    font-size: 25px;
+  }
+}
+.steps {
+  display: flex;
+  flex-direction: row;
+  column-gap: 10px;
+  .step {
+    > div {
+      padding: 40px 20px 10px 20px;
+      text-align: center;
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
+    .top-section {
+      min-height: 120px;
+      font-size: 30px;
+    }
+    .bottom-section {
+      min-height: 150px;
+      color: $baseColor;
+      padding-bottom: 20px;
+      background-color: $baseColorDark;
+      font-size: 18px;
+    }
+  }
+
+}
+
+.top-section {
+  &.first {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100px;
+      border-left: 100px solid transparent;
+      border-right: 0px solid transparent;
+      border-top: 120px solid $secondaryColor;
+      z-index:5;
+    }
+  }
+  &.last {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -100px;
+      border-right: 100px solid transparent;
+      border-left: 0px solid transparent;
+      border-bottom: 120px solid $secondaryColor;
+    }
+  }
+}
+.bottom-section {
+  &.first {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100px;
+
+      border-left: 100px solid transparent;
+      border-right: 0px solid transparent;
+      border-bottom: 150px solid $baseColorDark;
+    }
+  }
+  &.last {
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -100px;
+
+      border-right: 100px solid transparent;
+      border-left: 0px solid transparent;
+      border-top: 150px solid $baseColorDark;
+    }
+  }
+}
+@media screen and (max-width:768px) {
+  .steps{
+    flex-direction: column;
+    align-items: center;
+    .step{
+      width:100%;
+      margin-bottom: 20px;
+      >div{
+
+        &.first,&.last{
+          &::before{
+            content: none;
+          }
+        }
+      }
+
+    }
+  }
+}
+@media (min-width:768px) and (max-width:1200px) {
+  .bottom-section{
+    font-size: 14px !important;
+    height: 150px;
+    padding:15px 15px 0px 15px !important;
+  }
+  .top-section{
+    h2 {font-size: 1.7rem !important};
+  }
+}
+@media (min-width:1200px) {
+  .bottom-section{
+    height: 170px;
+    &.first{
+      &::before{
+        border-bottom: 170px solid $baseColorDark;
+      }
+    }
+    &.last{
+      &::before{
+        border-top: 170px solid $baseColorDark;
+      }
+    }
+  }
+}

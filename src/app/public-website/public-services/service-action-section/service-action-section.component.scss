@@ -1,0 +1,11 @@
+@import "../../../../assets/home.scss";
+@import "../../../../assets/theme.scss";
+
+section{
+  background-color: transparent !important;
+  background-image: url("../../../../assets/images/nopath-copy-12.jpg") !important;
+  .btn{
+    border-color: $baseColor !important;
+    color:$baseColor;
+  }
+}

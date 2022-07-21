@@ -1,0 +1,49 @@
+@import "./theme.scss";
+@import "./serivceGuideSlider.scss";
+
+section{
+  @include backgroundTheme;
+  background-color: $baseColorDark;
+  width: 100%;
+  color:$light-baseColor !important;
+  .container {
+    height: 100%;
+  }
+  .section-container{
+    width:100%;
+    height: 100%;
+    padding: 100px 0px;
+    .title{
+      margin-bottom: 80px;
+      text-align: center;
+      color: $baseColor;
+    }
+    .action-btn{
+      padding: 13px 27px;
+      background: $secondaryColor;
+      color:$light-baseColor;
+      display: block;
+      margin: auto;
+      margin-top: 60px;
+      border:0px;
+      min-width:150px
+    }
+  }
+}
+.bg-overlay{
+  content: " ";
+  @include backgroundTheme;
+  opacity: .7;
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+}
+@media screen and (max-width:768px) {
+  .section-container{
+    padding:100px 25px !important;
+  }
+}

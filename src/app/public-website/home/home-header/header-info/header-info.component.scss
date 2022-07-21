@@ -1,0 +1,15 @@
+@import "./../../../../../assets/theme.scss";
+.btn{
+  width:min(50%,300px);
+  background-color: $light-baseColorDark !important;
+}
+@media screen and (max-width:768px) {
+    .btn{
+      width:80%
+    }
+}
+@media screen and (min-width:992px) {
+  .btn{
+    width:80%;
+  }
+}

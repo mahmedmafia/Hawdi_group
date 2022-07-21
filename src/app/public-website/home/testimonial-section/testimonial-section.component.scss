@@ -1,0 +1,32 @@
+@import "../../../../assets/home.scss";
+.card {
+  background-color: transparent;
+  font-weight: 200;
+  .image-container {
+    width:50%;
+    height: 120px;
+    border: 8px solid $secondaryColor;
+    border-radius: 50%;
+    height: 100px;
+    margin:auto;
+    img{
+      height: 100%;
+      width: 100%;
+    }
+
+  }
+  #client{
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+ #company{
+    color:$secondaryColor !important;
+    font-weight: 300;
+    text-transform: capitalize;
+  }
+}
+.review{
+  color:#ffaa01;
+  font-size: 1.5em;
+  transform: scale(1.1);
+}

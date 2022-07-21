@@ -1,0 +1,26 @@
+<section class="services-guide">
+
+  <div class="container">
+    <div class="section-container">
+      <h2 class="title">Services Guide</h2>
+      <owl-carousel-o [options]="options" #owlCar class="servicesGuide-slider">
+        <ng-container *ngFor="let slider of serviceGuideSliders">
+          <ng-template carouselSlide>
+            <div class="card">
+              <img (click)="navigate(slider.href)" class="card-img-top" src="../../../assets/3347022_orig.jpg" [alt]="slider.title" style="cursor: pointer;">
+              <div class="card-body">
+                  <div class="card-title"><h4>{{slider.title}}</h4></div>
+                  <div class="card-text">
+                   {{slider.desc}}
+                  </div>
+              </div>
+                <a  class="card-button" [href]="slider.href?.toLowerCase()">Read More</a>
+            </div>
+          </ng-template>
+        </ng-container>
+      </owl-carousel-o>
+    </div>
+  </div>
+</section>
+
+

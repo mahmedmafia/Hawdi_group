@@ -1,0 +1,27 @@
+@import "../../../../assets/theme.scss";
+.radio-group {
+  display: flex;
+  justify-content: space-between;
+  span {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    min-height: 20px;
+  }
+  input {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid $secondaryColor;
+    border-radius: 50%;
+    background-color: white;
+    margin-right: 5px;
+    // background-clip: content-box;
+
+    &:checked {
+      background-color: $secondaryColor;
+      padding: 2px;
+      background-clip: content-box;
+    }
+  }
+}

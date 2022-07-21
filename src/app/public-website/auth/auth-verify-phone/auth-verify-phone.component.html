@@ -1,0 +1,46 @@
+<div id="verify">
+
+  <h1 class="text-center  mb-5 pb-5" [ngClass]="verifyFailed ?'text-danger':'text-secondary'">
+    <ng-container *ngIf="verifyFailed;else elseHeaderTemplate">
+      Verification Code Error
+    </ng-container>
+    <ng-template #elseHeaderTemplate>
+      Thank You!
+    </ng-template>
+  </h1>
+  <p  [ngClass]="verifyFailed ?'text-center':''" class="mt-3">
+    <ng-container *ngIf="verifyFailed;else elsePrTemplate">
+      The entered code is not correct, please make sure you entered the code correctly, or click on "re send code"
+    </ng-container>
+    <ng-template #elsePrTemplate>
+      To activate your account, you need to enter the verification code we sent to
+      <b>your Phone Number.</b>
+    </ng-template>
+  </p>
+
+  <form *ngIf="verifyCodeForm" [formGroup]="verifyCodeForm" (submit)="onSubmit()">
+    <div style="width: 80%; margin: auto">
+      <app-outline-input class="mb-4"  [textCenter]="true" [fieldObject]="convertFieldObject('code')"
+        [fieldErrors]="formValidator.formErrors" [formControlRef]="convertFormControl('code')">
+      </app-outline-input>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-10 mx-auto">
+        <div class="btn-group d-flex my-3" style="gap: 20px">
+          <button class="btn btn-block btn-secondary rounded-pill text-primary" [disabled]="verifyCodeForm.invalid"
+            type="submit">
+            Verify
+          </button>
+          <button *ngIf="verifyCodeForm.dirty && !verifyFailed " type="button" class="btn btn-small btn-danger rounded-pill text-primary" (click)="clearForm()">
+            X
+          </button>
+        </div>
+        <span class="text-center text-secondary mt-2 w-80 d-block" id="reSendCode" (click)="reSendCode()">Re send code
+          <ng-container *ngIf="sendCodeClicked">
+            ({{ timer | async }})
+          </ng-container>
+        </span>
+      </div>
+    </div>
+  </form>
+</div>

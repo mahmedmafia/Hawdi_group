@@ -1,0 +1,57 @@
+@import "../../../../assets/theme.scss";
+@import "../../../../assets/home.scss";
+@mixin inputPadding {
+  padding: 15px 0px 15px 30px;
+}
+
+section {
+  width: 100%;
+  background-image: url("../../../../assets/3347022_orig.jpg");
+  background-size: cover;
+  position: relative;
+  background-repeat: no-repeat;
+  .container {
+    position: relative;
+  }
+  .section-container {
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    z-index: 1;
+    .title {
+      margin-bottom: 50px;
+    }
+    .info {
+      margin-bottom: 50px;
+    }
+  }
+}
+form {
+  display: grid;
+  column-gap: 30px;
+  row-gap: 15px;
+  grid-template-columns: 1fr 1fr;
+  input {
+    @include inputPadding;
+    border-radius: 27px;
+    border: 0px;
+    :focus,
+    :active {
+      border: 0px;
+    }
+  }
+  textarea {
+    @include inputPadding;
+    grid-column-start: 1;
+    grid-column-end:-1;
+    margin-top: 15px;
+    border-radius: 27px;
+    margin-bottom: 50px;
+  }
+  flex-wrap: wrap;
+}
+@media (max-width: 780px) {
+  form{
+    grid-template-columns: 1fr;
+  }
+}

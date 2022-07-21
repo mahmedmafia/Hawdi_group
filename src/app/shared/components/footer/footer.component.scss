@@ -1,0 +1,68 @@
+@import "../../../../assets/theme.scss";
+section{
+  width: 100%;
+  background: $secondaryColor;
+  color:$baseColor;
+  .footer-container{
+    padding: 50px 10px;
+    align-items: center;
+    >*{
+      flex: 1;
+      min-height: 250px;
+    }
+    .logo{
+      flex:1.5;
+      height: 200px;
+      min-height: 150px;
+    }
+    >div p,ul li{
+      font-size: 15px;
+    }
+  }
+  .title{
+    color:$light-baseColor !important;
+  }
+}
+.about{
+  flex:.8 !important;
+  margin-right: 6rem;
+  p{
+    font-size: 12px !important;
+  }
+}
+.QuickLinks{
+  flex:.7 !important;
+  margin-right: 5rem;
+}
+.contacts{
+  .phone{
+    span{
+      margin-right: 5px;
+    }
+  }
+  .listing-social{
+    display: flex;
+    >*{
+      flex: .2;
+    }
+  }
+}
+@media (max-width:780px){
+  .footer-container{
+    flex-direction: column;
+    >*{
+      margin:15px 0px 30px 0px;
+      width: 80%;
+      text-align: center;
+      height: 30% !important;
+      min-height: 30% !important;
+
+    }
+  }
+  .listing-social{
+    display: flex;
+    >*{
+      flex: 1 !important;
+    }
+  }
+}

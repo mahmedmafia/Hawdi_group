@@ -1,0 +1,18 @@
+<div class="select-container">
+  <label *ngIf="fieldObject.displayName">{{fieldObject.displayName}}</label>
+  <select class="form-control bg-secondary text-primary" [formControl]="formControlRef" (change)="sendSelectedType($event)"
+    [(ngModel)]="selectedInput">
+    <option *ngIf="isDefaultLabelOption" [value]="null" selected disabled class="text-info">
+      <ng-content select="[defaultLabelOption]">
+      </ng-content>
+    </option>
+
+    <option *ngFor="let fieldValue of fieldObject.fieldValues" [value]="fieldValue.value">
+      {{fieldValue.name ? fieldValue.name : fieldValue.value}}
+    </option>
+  </select>
+
+  <span class="text-danger" *ngIf="fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName]">
+    {{ fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName] }}
+  </span>
+</div>
