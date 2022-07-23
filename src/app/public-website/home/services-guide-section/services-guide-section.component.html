@@ -7,7 +7,7 @@
         <ng-container *ngFor="let slider of serviceGuideSliders">
           <ng-template carouselSlide>
             <div class="card">
-              <img (click)="navigate(slider.href)" class="card-img-top" src="../../../assets/3347022_orig.jpg" [alt]="slider.title" style="cursor: pointer;">
+              <img (click)="navigate(slider.href)" class="card-img-top" [src]="slider.image" [alt]="slider.title" style="cursor: pointer;">
               <div class="card-body">
                   <div class="card-title"><h4>{{slider.title}}</h4></div>
                   <div class="card-text">

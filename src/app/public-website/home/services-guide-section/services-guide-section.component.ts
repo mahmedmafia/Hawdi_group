@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CarouselComponent, OwlOptions } from 'ngx-owl-carousel-o';
-
 @Component({
   selector: 'app-services-guide-section',
   templateUrl: './services-guide-section.component.html',
@@ -11,34 +10,34 @@ export class ServicesGuideSectionComponent implements OnInit {
   options: OwlOptions;
   serviceGuideSliders: serviceSlide[] = [
     {
-      image: '../../../../../assets/3347022_orig.jpg',
+      image: '../../../../assets/images/services/Transportation.png',
       title: 'Transportation',
       href: "/services/Transportation",
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..',
     },
     {
-      image: '../../../../../assets/3347022_orig.jpg',
+      image: '../../../../assets/images/services/Hospitality.png',
       title: 'Hospitality',
       href: "/services/Hospitality",
 
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..',
     },
     {
-      image: '../../../../../assets/3347022_orig.jpg',
+      image: '../../../../assets/images/services/Accommodation.png',
       title: 'Accommodation',
       href: "/services/Accommodation",
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..',
     },
     {
-      image: '../../../../../assets/3347022_orig.jpg',
+      image: '../../../../assets/images/services/PCR.png',
       title: 'PCR',
       href: "/services/pcr",
 
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..',
     },
     {
-      image: '../../../../../assets/3347022_orig.jpg',
-      title: 'Sadness',
+      image: '../../../../assets/images/services/Shipping.png',
+      title: 'Shipping',
       href: "/services/pcr",
 
       desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore..',
