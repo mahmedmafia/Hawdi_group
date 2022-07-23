@@ -4,6 +4,7 @@ import { BaseForm } from 'src/app/shared/components/baseForm';
 import { CustomValidators } from 'src/app/shared/components/custom-validators';
 import { Validators } from 'src/app/shared/components/validators';
 import { FormField, FormValidatorService } from 'src/app/shared/services/form-validator.service';
+import { AuthSerice } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ import { FormField, FormValidatorService } from 'src/app/shared/services/form-va
 })
 export class LoginComponent extends BaseForm implements OnInit {
   loginForm!: FormGroup;
-  constructor(public formValidator:FormValidatorService) {
+  constructor(public formValidator: FormValidatorService, private authServ: AuthSerice) {
     super()
   }
 
@@ -21,7 +22,7 @@ export class LoginComponent extends BaseForm implements OnInit {
     this.fromControllers = this.loginForm;
     this.fieldObject = this.controllers;
   }
-  controllers: {[key:string]:FormField} = {
+  controllers: { [key: string]: FormField } = {
 
     phone: {
       fieldName: 'phone',
@@ -62,10 +63,19 @@ export class LoginComponent extends BaseForm implements OnInit {
     },
 
   };
-  onSubmit(){
-    if(this.loginForm.invalid){
-      this.formValidator.forceShowErrors();
-      return;
+  onSubmit() {
+    try {
+      if (this.loginForm.invalid) {
+        this.formValidator.forceShowErrors();
+        return;
+      }
+      // const res=await someService to login;
+      let res = { success: true, token: '151251@%^asas', userData: this.loginForm.value }
+      if (res.success) {
+        this.authServ.login(res.token, res.userData);
+      }
+    } catch (err) {
+
     }
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthSerice, User } from 'src/app/public-website/auth/auth.service';
 
 @Component({
   selector: 'app-header-nav-bar',
@@ -6,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header-nav-bar.component.scss']
 })
 export class HeaderNavBarComponent implements OnInit {
-
-  constructor() { }
+  user: User | null = null;
+  isUserAuthenticated: boolean = false;
+  constructor(private authServ: AuthSerice,private router:Router) { }
 
   ngOnInit(): void {
+    this.authServ.userSubject.subscribe(res => {
+      this.user = res;
+      this.isUserAuthenticated = res != null;
+    })
   }
-
+  onLogOut(){
+    this.authServ.logout();
+  }
 }

@@ -7,7 +7,7 @@ import { RegisterationComponent } from './registeration/registeration.component'
 import { AuthVerifyPhoneComponent } from './auth-verify-phone/auth-verify-phone.component';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { LoginComponent } from './login/login.component';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 const authRoutes: Route[] = [
   {
     path: '',
@@ -43,7 +43,7 @@ const authRoutes: Route[] = [
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(authRoutes)
+    RouterModule.forChild(authRoutes),
   ]
 })
 export class AuthModule { }

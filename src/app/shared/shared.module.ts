@@ -25,6 +25,7 @@ import { OpenMapComponent } from './formComponents/open-map/open-map.component';
 import { GoogleMapComponent } from './formComponents/google-map/google-map.component';
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 @NgModule({
@@ -56,7 +57,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatNativeDateModule,
     GooglePlaceModule,
     MatDialogModule,
-    MatInputModule
+    MatInputModule,
+    MatSnackBarModule
+
 
   ],
   exports: [
@@ -76,7 +79,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatTableModule,
     DateNowComponent,
     OpenMapComponent,
-
+    MatSnackBarModule
   ]
 })
 export class SharedModule { }

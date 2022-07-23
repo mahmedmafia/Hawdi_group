@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./transportation-service.component.scss']
 })
 export class TransportationServiceComponent implements OnInit {
-  transportationImage = '../../../../assets/jinx.jpg';
+  transportationImage = '../../../../assets/images/transportation.png';
   serviceName='Tranportation';
   requestCount=45;
   constructor() { }

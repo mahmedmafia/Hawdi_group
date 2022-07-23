@@ -14,22 +14,23 @@ import {
   FormField,
   FormValidatorService,
 } from 'src/app/shared/services/form-validator.service';
+import { AuthSerice } from '../auth.service';
 @Component({
   selector: 'app-registeration',
   templateUrl: './registeration.component.html',
   styleUrls: ['./registeration.component.scss'],
 })
 export class RegisterationComponent extends BaseForm implements OnInit {
-  backGroundImage='../../../assets/images/business-handshake-on-grey-background-rwwgm2k-2ml.jpg';
+  backGroundImage = '../../../assets/images/business-handshake-on-grey-background-rwwgm2k-2ml.jpg';
   registerationForm!: FormGroup;
 
   authorities = ['health', 'money'];
-  constructor(public formValidator: FormValidatorService,private router:Router) {
+  constructor(public formValidator: FormValidatorService, private router: Router,private authServ:AuthSerice) {
     super();
   }
   userTypeEnum = userType;
   selectedUserType: userType = this.userTypeEnum.GovernmentSector;
-  controllers: {[key:string]:FormField} = {
+  controllers: { [key: string]: FormField } = {
     name: {
       fieldName: 'name',
       displayName: 'Name',
@@ -101,10 +102,10 @@ export class RegisterationComponent extends BaseForm implements OnInit {
     authority: {
       fieldName: 'authority',
       defaultValue: null,
-      fieldValues: this.authorities.map(res=>{
-        return {value:res};
+      fieldValues: this.authorities.map(res => {
+        return { value: res };
       }),
-      displayName:'',
+      displayName: '',
     },
     NationalUnifiedNo: {
       fieldName: 'NationalUnifiedNo',
@@ -164,8 +165,8 @@ export class RegisterationComponent extends BaseForm implements OnInit {
     policy: {
       fieldName: 'policy',
       displayName: '',
-      fieldValues:[
-        {value:true,name:'I agree on service terms and conditions'},
+      fieldValues: [
+        { value: true, name: 'I agree on service terms and conditions' },
       ],
       defaultValue: false,
       validators: [
@@ -186,7 +187,7 @@ export class RegisterationComponent extends BaseForm implements OnInit {
       .get('userType')
       ?.valueChanges.subscribe((res: userType) => {
         this.selectedUserType = res;
-     this.addValidatorBasedOnType(res);
+        this.addValidatorBasedOnType(res);
       });
   }
   addValidatorBasedOnType(type: string) {
@@ -232,10 +233,14 @@ export class RegisterationComponent extends BaseForm implements OnInit {
       this.formValidator.forceShowErrors();
       return;
     }
+    const userRegistedData=this.registerationForm.value;
+    delete userRegistedData.password;
+    delete userRegistedData.confirmPassword;
+    this.authServ.register(userRegistedData);
     this.router.navigate(['/auth/verify-phone'])
   }
-  clearForm(){
-    this.registerationForm.reset({userType:this.selectedUserType});
+  clearForm() {
+    this.registerationForm.reset({ userType: this.selectedUserType });
   }
 }
 enum userType {

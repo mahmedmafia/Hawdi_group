@@ -38,7 +38,6 @@ export class ClientProfileComponent implements OnInit {
       }
       this.clientKeyValuesArr.push(object);
     }
-    console.log(this.clientKeyValuesArr);
   }
   onClickService(href:string){
     this.router.navigate(['/'+href]);

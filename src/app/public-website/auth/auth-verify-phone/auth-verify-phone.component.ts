@@ -6,6 +6,7 @@ import { Validators } from 'src/app/shared/components/validators';
 import { FormField, FormValidatorService } from 'src/app/shared/services/form-validator.service';
 import { timer } from 'rxjs';
 import { map, take, tap } from 'rxjs/operators';
+import { AuthSerice } from '../auth.service';
 @Component({
   selector: 'app-auth-verify-phone',
   templateUrl: './auth-verify-phone.component.html',
@@ -13,7 +14,8 @@ import { map, take, tap } from 'rxjs/operators';
 })
 export class AuthVerifyPhoneComponent extends BaseForm implements OnInit {
   verifyCodeForm!: FormGroup;
-  constructor(public formValidator: FormValidatorService) {
+  registerdPhone:string='';
+  constructor(public formValidator: FormValidatorService,private authServ:AuthSerice) {
     super();
   }
   controllers: { [key: string]: FormField } = {
@@ -35,6 +37,9 @@ export class AuthVerifyPhoneComponent extends BaseForm implements OnInit {
     },
   }
   ngOnInit(): void {
+    const registerData=this.authServ.getRegisterData();
+    if(!registerData) //do some action
+    this.registerdPhone=registerData!.phone;
     this.verifyCodeForm = this.formValidator.createForm(Object.values(this.controllers));
     this.fromControllers = this.verifyCodeForm;
     this.fieldObject = this.controllers;
