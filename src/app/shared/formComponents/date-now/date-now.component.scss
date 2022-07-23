@@ -3,4 +3,8 @@ input{
   @include fillInput;
   padding-left: 10px;
   border-radius: 15px;
+  background: $secondaryColor ;
+  &::placeholder{
+    color:$light-baseColor;
+  }
 }

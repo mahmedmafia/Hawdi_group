@@ -9,12 +9,12 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
-  .hidden{
-    visibility: hidden;
+  &.hide{
+    display: none;
   }
 }
 #transporationForm {
-  form  >div{
+  .transporationFormContainer{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       gap:20px;
@@ -44,5 +44,11 @@
   }
   button:hover,button:active,button.active{
     color:$light-baseColor !important;
+  }
+}
+@media screen and (max-width:768px) {
+  .transporationFormContainer,.inputs-container{
+    grid-template-columns: 1fr !important;
+    align-items: stretch;
   }
 }
