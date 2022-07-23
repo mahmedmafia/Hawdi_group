@@ -1,0 +1,25 @@
+section {
+  padding: 50px 10px 100px 10px;
+  .header{
+    p.desc{
+      width: 70%;
+    }
+  }
+}
+table{
+  width:100%;
+  background: transparent !important;
+  th{
+    font-size: 1em !important;
+  }
+  td{
+    font-size: 1em !important;
+  }
+}
+.text-underline{
+  text-decoration: underline;
+  cursor: pointer;
+}
+// .table-transparent{
+//   background: transparent !important;
+// }

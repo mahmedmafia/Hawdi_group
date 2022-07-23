@@ -1,0 +1,11 @@
+<div appearance="outline" class="w-100">
+  <label class="mb-2">{{ fieldObject.displayName }}</label>
+  <input id="inDate" type="datetime" class="form-control" [max]="maxDate" [formControl]="formControlRef"
+    [matDatepicker]="picker" placeholder="Choose" (dateChange)="updateDate($event)" (click)="picker.open()" />
+  <mat-datepicker-toggle class="position-absolute" style="right: 0px;top: 0px" [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker startView="month" [startAt]="Datenow"></mat-datepicker>
+  <mat-error *ngIf="fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName]">
+    {{ fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName] }}
+  </mat-error>
+</div>
+<!-- [for]="picker" -->

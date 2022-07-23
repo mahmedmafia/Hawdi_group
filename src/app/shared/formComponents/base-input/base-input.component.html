@@ -1,7 +1,7 @@
-<div  class="col-12 form-group">
-  <label> {{fieldObject.displayName}}</label>
+<div  class="form-group d-flex flex-column">
+  <label class="mb-2 ps-2"> {{fieldObject.displayName}}</label>
   <input [type]="fieldObject.fieldType" [formControl]="formControlRef">
-  <span class="text-danger" *ngIf="fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName]">
+  <mat-error  *ngIf="fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName]">
     {{ fieldErrors[fieldObject.fieldName] || fieldErrors[fieldErrorName] }}
-  </span>
+  </mat-error>
 </div>

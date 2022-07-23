@@ -1,0 +1,6 @@
+@import "../../../../assets/theme";
+input{
+  @include fillInput;
+  padding-left: 10px;
+  border-radius: 15px;
+}

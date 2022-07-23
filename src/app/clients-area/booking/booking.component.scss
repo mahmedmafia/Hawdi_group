@@ -1,0 +1,58 @@
+@import "../../../assets/theme.scss";
+@import "../clientAreaSharedStyle.scss";
+#serivces {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  .service {
+    overflow: hidden;
+    cursor: pointer;
+    .img-container {
+      position: relative;
+      height: 78%;
+      width: 100%;
+      img {
+        height: 100%;
+        filter: grayscale(1) contrast(1.2) blur(0.2px);
+      }
+      #servName {
+        position: relative;
+        width: 100%;
+        bottom: 40px;
+        font-size: 1.4em;
+        text-align: center;
+        z-index: 2;
+      }
+      .mbr-overlay {
+        z-index: 1;
+        opacity: 0.2;
+      }
+    }
+    button {
+      height: 22%;
+      font-size: 1.2rem;
+    }
+  }
+}
+.service:hover{
+  border:3px solid $secondaryColor;
+  #servName{
+    font-size: 1.1em !important;
+    bottom: 30px !important;
+  }
+  button{
+    background: $baseColorDark !important;
+    color:$secondaryColor !important;
+  }
+}
+@media screen and (max-width:768px){
+  #serivces {
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+  }
+}
+@media screen and (min-width:768px ) and (max-width:1000px){
+  #serivces {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

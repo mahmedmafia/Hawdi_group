@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HeaderComponent implements OnInit {
   @Input() headerImage!:string;
   @Input()  isOverlayDark:boolean=true;
+  @Input() minHeight='900px';
   constructor() { }
 
   ngOnInit(): void {

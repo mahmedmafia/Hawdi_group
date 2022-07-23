@@ -13,6 +13,18 @@ import { BaseInputComponent } from './formComponents/base-input/base-input.compo
 import { OutlineInputComponent } from './formComponents/outline-input/outline-input.component';
 import { RadioComponent } from './formComponents/radio/radio.component';
 import { SelectListComponent } from './formComponents/select-list/select-list.component';
+import { ClientsAreaStatsComponent } from './components/clients-area-stats/clients-area-stats.component';
+import {MatTableModule } from '@angular/material/table';
+import { DateNowComponent } from './formComponents/date-now/date-now.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { OpenMapComponent } from './formComponents/open-map/open-map.component';
+import { GoogleMapComponent } from './formComponents/google-map/google-map.component';
+import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -26,14 +38,26 @@ import { SelectListComponent } from './formComponents/select-list/select-list.co
     BaseInputComponent,
     OutlineInputComponent,
     RadioComponent,
-    SelectListComponent
+    SelectListComponent,
+    ClientsAreaStatsComponent,
+    DateNowComponent,
+    OpenMapComponent,
+    GoogleMapComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
     RouterModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    GooglePlaceModule,
+    MatDialogModule,
+    MatInputModule
+
   ],
   exports: [
     HeaderNavBarComponent,
@@ -47,7 +71,11 @@ import { SelectListComponent } from './formComponents/select-list/select-list.co
     BaseInputComponent,
     OutlineInputComponent,
     RadioComponent,
-    SelectListComponent
+    SelectListComponent,
+    ClientsAreaStatsComponent,
+    MatTableModule,
+    DateNowComponent,
+    OpenMapComponent,
 
   ]
 })

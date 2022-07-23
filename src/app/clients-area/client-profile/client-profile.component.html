@@ -1,0 +1,83 @@
+<section class="bg-lightDark">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12 col-lg-6 align-center">
+        <div class="img-container">
+          <img src="../../../assets/../assets/3347022_orig.jpg" />
+          <span class="icon-container">
+            <img src="../../../assets/images/camera-outline.png">
+          </span>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="row mt-4">
+      <div class="col-12 col-lg-6  ">
+        <div class="personal-info mb-5">
+          <div class="tab bg-secondary d-flex justify-content-between text-primary px-3 py-2 mb-4" style="height:50px ;">
+            <h4>Personal Info</h4>
+            <h4 class="d-flex align-items-center action"><span class="icon-container"><i
+                  class="fa fa-edit"></i></span><span>Edit</span></h4>
+          </div>
+          <div class="info-table ">
+            <table class="tableData">
+              <tr class="mb-3 px-3" *ngFor="let clientRow of clientKeyValuesArr">
+                <td class="text-primary">{{clientRow.key}}</td>
+                <td class="text-info text-left">
+                  <ng-container *ngIf="clientRow.key.toLowerCase()=='password';else elseTemplate">
+                    <ng-container *ngFor="let key of passwordLength ">
+                      *
+                    </ng-container>
+                  </ng-container>
+                  <ng-template #elseTemplate> {{clientRow.value}}</ng-template>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="payment-method my-5">
+          <div class="tab bg-secondary d-flex justify-content-between text-primary px-3 py-2 mb-4" style="height:50px ;">
+            <h4>Payment Method</h4>
+            <h4 class="d-flex align-items-center action"><span class="icon-container"><i
+                  class="fa fa-plus-square"></i></span><span>Add</span></h4>
+          </div>
+          <div class="info-table  ">
+            <table class="tableData" id="paymentMethod">
+              <tr class="mb-2 pb-2 px-3" *ngFor="let paymentMethod of clientPaymentMethods">
+                <td class="text-primary" >{{paymentMethod.name}}</td>
+                <td class="text-info">{{paymentMethod.date| date:'dd/mm/yyyy'}}</td>
+                <td class="icon-container text-primary d-flex justify-content-between">
+                  <i class="fa fa-eye"></i>
+                  <i class="fa fa-edit"></i>
+                  <i class="fa fa-trash"></i>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-6 col-lg-4">
+            <button class="btn btn-block btn-secondary rounded-pill text-primary" [disabled]="true">Save</button>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-6">
+        <div class="services">
+          <div class="tab bg-secondary d-flex justify-content-between text-primary px-3 py-2 mb-4" style="height:50px ;">
+            <h4>What Do you want to do?</h4>
+          </div>
+          <div class="servicesList">
+            <ng-container *ngFor="let service of servicesList" >
+              <div (click)="onClickService(service.link)" class="serviceImg-container mb-4" style="position:relative ;width:100%">
+                <img [src]="service.img">
+                <span class="title">{{service.title}}</span>
+                <span class="desc">{{service.desc}}</span>
+
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

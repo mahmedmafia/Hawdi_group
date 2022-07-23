@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   span {
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     display: flex;
     min-height: 20px;
@@ -24,4 +24,34 @@
       background-clip: content-box;
     }
   }
+}
+.fill {
+  span{
+    background: $secondaryColor;
+    width:50%;
+    padding:2px 10px;
+    min-height: 50px;
+    border-radius: 15px;
+    text-align: center;
+    &:not(:first-child){
+      margin-left: 20px;
+    }
+    input{
+      appearance: none;
+      width:20%;
+      height: 70%;
+      border-radius: 20%;
+      border:5px solid $light-baseColor;
+      :checked {
+        background-color: $secondaryColor;
+        padding: 2px;
+        background-clip: content-box;
+      }
+    }
+    label
+    {
+      width:80%;
+    }
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BaseField } from '../../components/baseField';
 
 @Component({
@@ -7,7 +7,7 @@ import { BaseField } from '../../components/baseField';
   styleUrls: ['./radio.component.scss']
 })
 export class RadioComponent extends BaseField implements OnInit {
-
+  @Input() fill=false;
   constructor() {
     super();
    }

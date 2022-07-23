@@ -1,5 +1,5 @@
 
-<div class="form-group radio-group" >
+<div class="form-group radio-group" [ngClass]="fill?'fill':''" >
   <ng-container *ngFor="let fieldValue of fieldObject.fieldValues" >
       <span>
       <input type="radio" [formControl]="formControlRef" [name]="fieldObject.fieldName" [value]="fieldValue.value">

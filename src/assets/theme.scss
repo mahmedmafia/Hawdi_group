@@ -18,6 +18,7 @@ $baseErrorColor:#B10808;
 @mixin baseInput{
   width: 100%;
   padding: 10px 2px;
+  font-size:1.2rem;
 
 }
 @mixin outLineInput {
@@ -25,5 +26,9 @@ $baseErrorColor:#B10808;
   background: transparent;
   border: 0px;
   border-bottom: 2px solid $baseColorDark;
-  font-size:1.2rem;
+}
+
+@mixin fillInput{
+  @include baseInput;
+
 }

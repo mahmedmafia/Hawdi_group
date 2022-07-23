@@ -1,0 +1,72 @@
+<div class="services-container">
+  <h6 class="text-center title">Not Confirmed</h6>
+
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- <ng-container *ngFor="let displayCoulmn of displayedColumns">
+      <ng-container [matColumnDef]="displayCoulmn">
+        <th mat-header-cell *matHeaderCellDef class="text-center"> {{displayCoulmn}} </th>
+        <td mat-cell *matCellDef="let element" class="text-center">
+
+          <ng-container [ngSwitch]="displayDatTypes[displayCoulmn]">
+            <ng-container *ngSwitchCase="'text'">{{element[displayData[displayCoulmn]]}}</ng-container>
+            <ng-container *ngSwitchCase="'action-icon'">
+              <span class="icon-container text-secondary">
+                <i class="fa" [ngClass]="['fa-'+displayData[displayCoulmn]]"></i></span>
+            </ng-container>
+            <ng-container *ngSwitchCase="'button'">
+              <button (click)="onConfirmRequest(element.id)" class="bg-secondary text-info rounded-pill ms-4"
+                style="width:80%">{{displayData[displayCoulmn]}}</button>
+            </ng-container>
+            <ng-container *ngSwitchCase="'time'">{{element[displayData[displayCoulmn]] | date:"hh:ss"}}</ng-container>
+            <ng-container *ngSwitchCase="'date'">{{element[displayData[displayCoulmn]] | date:"MM/dd/yyyy"}}
+            </ng-container>
+            <ng-container *ngSwitchDefault>{{displayData[displayCoulmn]}}</ng-container>
+          </ng-container>
+
+        </td>
+      </ng-container>
+    </ng-container> -->
+    <ng-container matColumnDef="No">
+      <th mat-header-cell *matHeaderCellDef> No </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+    <ng-container matColumnDef="Service">
+      <th mat-header-cell *matHeaderCellDef> Service </th>
+      <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Request Time">
+      <th mat-header-cell *matHeaderCellDef> Request Time </th>
+      <td mat-cell *matCellDef="let element"> {{element.RequestDate | date:'hh:ss'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Request Date">
+      <th mat-header-cell *matHeaderCellDef> Request Date </th>
+      <td mat-cell *matCellDef="let element"> {{element.RequestDate | date:'MM/dd/yyyy'}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="Details">
+      <th mat-header-cell *matHeaderCellDef class="text-center"> Details </th>
+      <td mat-cell *matCellDef="let element" (click)="onViewService(element.id)"><span
+          class="icon-container text-secondary"> <i class="fa fa-eye "></i></span></td>
+    </ng-container>
+    <ng-container matColumnDef="Edit Request">
+      <th mat-header-cell *matHeaderCellDef class="text-center"> Edit Request </th>
+      <td mat-cell *matCellDef="let element" (click)="onEditService(element.id)"><span
+          class="icon-container text-secondary"> <i class="fa fa-edit "></i></span></td>
+    </ng-container>
+    <ng-container matColumnDef="Delete Request">
+      <th mat-header-cell *matHeaderCellDef class="text-center"> Delete Request </th>
+      <td mat-cell *matCellDef="let element" (click)="onDeleteService(element.id)"> <span
+          class="icon-container text-secondary"> <i class="fa fa-trash "></i></span></td>
+    </ng-container>
+    <ng-container matColumnDef="Confirm Request">
+      <th mat-header-cell *matHeaderCellDef class="text-center"> Confirm Request </th>
+      <td mat-cell *matCellDef="let element"><button (click)="onConfirmRequest(element.id)"
+          class="bg-secondary text-info rounded-pill ms-4" style="width:80%">Confirm Request</button>
+      <td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>

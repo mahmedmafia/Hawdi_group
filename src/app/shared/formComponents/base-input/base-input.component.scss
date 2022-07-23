@@ -1,0 +1,12 @@
+@import "../../../../assets/theme.scss";;
+.form-group{
+  input{
+    @include fillInput;
+    border-radius: 15px;
+    padding-left: 15px;
+  }
+  .alert {
+    padding:.2rem !important;
+    border-radius: 15px;
+  }
+}
