@@ -69,7 +69,10 @@
               <p class=" text-primary display-4 m-0 ms-2 ">
                 <span>Welcome</span>
                 <br>
-                <a class=" text-primary" [routerLink]="['/client/profile']" *ngIf="user">{{user.name}}</a>
+                <a class=" text-primary" [routerLink]="['/client/profile']" *ngIf="user" >
+                  <ng-container *ngIf="user?.name;else userTemplate">{{user.name}}</ng-container>
+                  <ng-template #userTemplate>profile</ng-template>
+                 </a>
               </p>
             </li>
             <li class="nav-item">
