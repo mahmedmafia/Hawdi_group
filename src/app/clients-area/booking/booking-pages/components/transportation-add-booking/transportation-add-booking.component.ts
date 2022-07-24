@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { BaseForm } from 'src/app/shared/components/baseForm';
+import { BaseForm, formControllers } from 'src/app/shared/components/baseForm';
 import { CustomValidators } from 'src/app/shared/components/custom-validators';
 import { Validators } from 'src/app/shared/components/validators';
 import {
@@ -216,6 +216,4 @@ export class TransportationAddBookingComponent
     this.selectedVehicle=index;
   }
 }
-export interface formControllers {
-  [key: string]: FormField;
-}
+
