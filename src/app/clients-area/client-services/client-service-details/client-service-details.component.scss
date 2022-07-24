@@ -1,0 +1,23 @@
+@import "../../clientAreaSharedStyle.scss";
+
+.serv-detail {
+  padding-bottom: 20px;
+  .img-container {
+    img {
+      filter: grayscale(1) contrast(0.8) blur(0.2px);
+    }
+  }
+  table {
+    width: 100%;
+    tr {
+      margin-bottom: 15px;
+      width: 100%;
+      justify-content: space-between;
+      display: flex;
+      // padding:20px 5px;
+    }
+  }
+  .table-title {
+    margin-bottom: 20px;
+  }
+}

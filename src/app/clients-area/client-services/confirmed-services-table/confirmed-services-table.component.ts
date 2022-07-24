@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BaseClientServiceTable } from '../BaseClientServiceTable';
 
 @Component({
@@ -10,9 +11,9 @@ export class ConfirmedServicesTableComponent extends BaseClientServiceTable impl
   displayedColumns = [
     'No', 'Service', 'Request Time', 'Request Date', 'Details', 'Request Status'
   ];
-  constructor() {
-    super();
-   }
+  constructor( router: Router,  activeRoute: ActivatedRoute) {
+    super(router, activeRoute);
+  }
 
   ngOnInit(): void {
   }

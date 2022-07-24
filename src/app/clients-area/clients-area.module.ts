@@ -24,7 +24,6 @@ const clientRoutes: Routes = [
   },
   {
     path: 'services',
-    component: ClientServicesComponent,
     loadChildren: () => import('./client-services/client-services.module').then(m => m.ClientServicesModule)
   },
 ]

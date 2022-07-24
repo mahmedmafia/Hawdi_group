@@ -1,6 +1,7 @@
 
 
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BaseClientServiceTable } from '../BaseClientServiceTable';
 
 
@@ -34,12 +35,11 @@ export class RequestedServicesTableComponent extends BaseClientServiceTable impl
   //   'Delete Request': 'action-icon',
   //   'Confirm Request': 'button',
   // }
-  constructor() {
-    super();
+  constructor( router:Router, activeRoute:ActivatedRoute) {
+    super(router,activeRoute);
   }
 
   ngOnInit(): void {
-    console.log(this.dataSource);
   }
 
 }
