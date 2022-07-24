@@ -1,20 +1,21 @@
-<div class="header-section" [ngStyle]="{'min-height':minHeight}">
+<div class="header-section" [ngStyle]="{ 'min-height': minHeight }">
+  
   <app-header-nav-bar class="position-top"></app-header-nav-bar>
   <div class="head-section">
     <img [src]="headerImage" />
   </div>
-  <div class="mbr-overlay" *ngIf="isOverlayDark" style="opacity: 0.8; background-color: rgb(39, 39, 39);">
-  </div>
+  <div
+    class="mbr-overlay"
+    *ngIf="isOverlayDark"
+    style="opacity: 0.8; background-color: rgb(39, 39, 39)"
+  ></div>
   <div class="position-center">
-    <ng-content select="[headerCenter]">
-    </ng-content>
+    <ng-content select="[headerCenter]"> </ng-content>
   </div>
   <div class="position-bottom">
-    <ng-content select="[headerBottom]">
-    </ng-content>
+    <ng-content select="[headerBottom]"> </ng-content>
   </div>
   <div class="position-content">
     <ng-content select="[headerContent]"></ng-content>
-
   </div>
 </div>
