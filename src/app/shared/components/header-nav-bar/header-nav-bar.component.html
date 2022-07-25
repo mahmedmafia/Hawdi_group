@@ -1,13 +1,26 @@
-<section data-bs-version="5.1" class="menu menu2 cid-tbCtizByCJ" once="menu" id="menu2-0">
+<section
+  data-bs-version="5.1"
+  class="menu menu2 cid-tbCtizByCJ"
+  once="menu"
+  id="menu2-0"
+>
   <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
     <div class="bg-overlay"></div>
     <div class="container">
       <div class="navbar-brand">
         <app-logo class="navbar-logo"></app-logo>
       </div>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-bs-toggle="collapse"
-        data-target="#navbarSupportedContent" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-bs-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarNavAltMarkup"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
         <div class="hamburger">
           <span></span>
           <span></span>
@@ -15,75 +28,137 @@
           <span></span>
         </div>
       </button>
-      <div class="collapse navbar-collapse mean-menu" id="navbarSupportedContent" style="align-items: center;">
-        <ul class="navbar-nav nav-dropdown" data-app-modern-menu="true" style="align-items: center;">
-          <ng-container *ngIf="!isUserAuthenticated;else elseTemplate">
-
+      <div
+        class="collapse navbar-collapse mean-menu"
+        id="navbarSupportedContent"
+        style="align-items: center"
+      >
+        <ul
+          class="navbar-nav nav-dropdown"
+          data-app-modern-menu="true"
+          style="align-items: center"
+        >
+          <ng-container *ngIf="!isUserAuthenticated; else elseTemplate">
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4" [routerLink]="['/home']">Home</a>
+              <a
+                class="nav-link link text-primary display-4"
+                (click)="navigateToScrollHome('homeHeader')"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4">Listing</a>
-
+              <a
+                class="nav-link link text-primary display-4"
+                (click)="navigateToScrollHome('about')"
+                >About</a
+              >
             </li>
             <li class="nav-item megamenu">
-              <a class="nav-link link text-primary display-4">Pages</a>
+              <a
+                class="nav-link link text-primary display-4"
+                [routerLink]="['/client/bookings']"
+                >Services</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4">Shop</a>
+              <a
+                class="nav-link link text-primary display-4"
+                (click)="navigateToScrollHome('faq')"
+                >FAQs</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4">Blog</a>
+              <a
+                class="nav-link link text-primary display-4"
+                (click)="navigateToScrollHome('contact')"
+                >Contact</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4">Contact</a>
+              <a
+                class="nav-link link text-primary display-4 btn-secondary"
+                style="padding: 3px 10px !important"
+                [routerLink]="['/auth/login']"
+                >Login</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4 btn-secondary" style="padding:3px 10px !important"
-                [routerLink]="['/auth/login']">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link text-primary display-4 btn-secondary " style="padding:3px 10px !important"
-                [routerLink]="['/auth/register']" routerLinkActive="router-link-active">SignUp</a>
+              <a
+                class="nav-link link text-primary display-4 btn-secondary"
+                style="padding: 3px 10px !important"
+                [routerLink]="['/auth/register']"
+                routerLinkActive="router-link-active"
+                >SignUp</a
+              >
             </li>
           </ng-container>
           <ng-template #elseTemplate>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4" (click)="navigateToScrollHome('homeHeader')">Home</a>
+              <a
+                class="nav-link link text-primary display-4"
+                (click)="navigateToScrollHome('homeHeader')"
+                >Home</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4" (click)="navigateToScrollHome('about')">About</a>
-
+              <a
+                class="nav-link link text-primary display-4"
+                (click)="navigateToScrollHome('about')"
+                >About</a
+              >
             </li>
             <li class="nav-item megamenu">
-              <a class="nav-link link text-primary display-4" [routerLink]="['/client/bookings']">Services</a>
+              <a
+                class="nav-link link text-primary display-4"
+                [routerLink]="['/client/bookings']"
+                >Services</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4" (click)="navigateToScrollHome('faq')">FAQs</a>
+              <a
+                class="nav-link link text-primary display-4"
+                (click)="navigateToScrollHome('faq')"
+                >FAQs</a
+              >
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4" (click)="navigateToScrollHome('contact')">Contact</a>
+              <a
+                class="nav-link link text-primary display-4"
+                (click)="navigateToScrollHome('contact')"
+                >Contact</a
+              >
             </li>
             <li class="nav-item d-flex align-items-center">
-              <span class="text-primary pe-1 nav-link link " style="font-size:1.2em ;"><i class="fa fa-user-o fa-2x"></i></span>
-              <p class=" text-primary display-4 m-0 ms-2 ">
+              <span
+                class="text-primary pe-1 nav-link link"
+                style="font-size: 1.2em"
+                ><i class="fa fa-user-o fa-2x"></i
+              ></span>
+              <p class="text-primary display-4 m-0 ms-2">
                 <span>Welcome</span>
-                <br>
-                <a class=" text-primary" [routerLink]="['/client/profile']" *ngIf="user" >
-                  <ng-container *ngIf="user?.name;else userTemplate">{{user.name}}</ng-container>
+                <br />
+                <a
+                  class="text-primary"
+                  [routerLink]="['/client/profile']"
+                  *ngIf="user"
+                >
+                  <ng-container *ngIf="user?.name; else userTemplate">{{
+                    user.name
+                  }}</ng-container>
                   <ng-template #userTemplate>profile</ng-template>
-                 </a>
+                </a>
               </p>
             </li>
             <li class="nav-item">
-              <a (click)="onLogOut()" class="nav-link link text-primary display-4"><i class="fa fa-sign-out"></i>Logout</a>
+              <a
+                (click)="onLogOut()"
+                class="nav-link link text-primary display-4"
+                ><i class="fa fa-sign-out"></i>Logout</a
+              >
             </li>
           </ng-template>
         </ul>
       </div>
-
-
     </div>
-
   </nav>
 </section>
