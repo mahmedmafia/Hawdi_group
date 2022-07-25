@@ -4,7 +4,7 @@
     <div class="bottom-container">
       <div *ngIf="serviceName" id="service">
         <h2 class="title text-primary">{{serviceName}}</h2>
-        <button class="btn btn-lg btn-secondary">Book a Service</button>
+        <button class="btn btn-lg btn-secondary" [routerLink]="['/client/bookings/add/' + serviceName]">Book a Service</button>
       </div>
       <div class="counter-container">
         <div class="counter-chart">

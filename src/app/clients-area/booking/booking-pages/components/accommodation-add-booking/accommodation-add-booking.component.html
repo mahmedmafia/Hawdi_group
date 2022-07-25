@@ -1,0 +1,146 @@
+<section class="bg-lightDark text-primary">
+  <div class="container">
+    <h2 class="text-center text-primary my-5">Accomodation Service</h2>
+    <div id="accomodationForm" class="mb-2 py-2" *ngIf="!bookingDone">
+      <form
+        *ngIf="accomodationServiceForm"
+        [formGroup]="accomodationServiceForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="accomodationFormContainer">
+          <div class="form-inputs">
+            <label class="mb-2">What is the accomodation type?</label>
+            <app-select-list
+              [formControlRef]="convertFormControl('type')"
+              [fieldErrors]="formValidator.formErrors"
+              [fieldObject]="convertFieldObject('type')"
+              [isDefaultLabelOption]="true"
+            >
+              <ng-container defaultLabelOption>Choose</ng-container>
+            </app-select-list>
+          </div>
+          <div class="form-inputs">
+            <label class="mb-2">In which city you want an accomodation?</label>
+            <app-select-list
+              [formControlRef]="convertFormControl('brand')"
+              [fieldErrors]="formValidator.formErrors"
+              [fieldObject]="convertFieldObject('brand')"
+              [isDefaultLabelOption]="true"
+            >
+              <ng-container defaultLabelOption>Choose</ng-container>
+            </app-select-list>
+          </div>
+          <div class="form-inputs">
+            <label class="mb-2">Please select service rank</label>
+            <app-select-list
+              [formControlRef]="convertFormControl('model')"
+              [fieldErrors]="formValidator.formErrors"
+              [fieldObject]="convertFieldObject('model')"
+              [isDefaultLabelOption]="true"
+            >
+              <ng-container defaultLabelOption>Choose</ng-container>
+            </app-select-list>
+          </div>
+         
+          <div class="form-inputs">
+            <app-date-now
+              [formControlRef]="convertFormControl('startDate')"
+              [fieldErrors]="formValidator.formErrors"
+              [fieldObject]="convertFieldObject('startDate')"
+            >
+            </app-date-now>
+          </div>
+          <div class="form-inputs">
+            <app-date-now
+              [formControlRef]="convertFormControl('endDate')"
+              [fieldErrors]="formValidator.formErrors"
+              [fieldObject]="convertFieldObject('endDate')"
+            >
+            </app-date-now>
+          </div>
+          <div class="form-inputs">
+            <h6 class="mb-2">Do you want a...</h6>
+            <app-radio
+              [fieldObject]="convertFieldObject('notes')"
+              [formControlRef]="convertFormControl('notes')"
+              [fieldErrors]="formValidator.formErrors"
+              [fill]="true"
+              class="text-primary"
+            ></app-radio>
+          </div>
+
+          <div class="form-inputs">
+            <label class="mb-2">Available options for you?</label>
+            <app-select-list
+              [formControlRef]="convertFormControl('option')"
+              [fieldErrors]="formValidator.formErrors"
+              [fieldObject]="convertFieldObject('option')"
+              [isDefaultLabelOption]="true"
+            >
+              <ng-container defaultLabelOption>Available Hotels</ng-container>
+            </app-select-list>
+          </div>
+          <div class="form-inputs">
+            <app-base-input
+              [fieldObject]="convertFieldObject('daysTotal')"
+              [formControlRef]="convertFormControl('daysTotal')"
+              [fieldErrors]="formValidator.formErrors"
+              class="text-primary"
+            ></app-base-input>
+          </div>
+          <div class="form-inputs"></div>
+          <div class="form-inputs"></div>
+          <div>
+            <button
+              class="btn btn-secondary m-auto rounded-pill"
+              type="submit"
+              (click)="bookingDone = true"
+              [disabled]="accomodationServiceForm.invalid"
+            >
+              Confirm and save
+            </button>
+          </div>
+          <div class="form-inputs"></div>
+          
+        </div>
+      </form>
+    </div>
+
+    <div *ngIf="bookingDone">
+      <h2 class="text-center text-primary my-5">Thank you!</h2>
+      <p class="text-center text-primary my-5 request">
+        Your request was saved, you can go to
+        <a
+          class="my-services"
+          [routerLink]="['/client/services']"
+          routerLinkActive="router-link-active"
+          >MY SERVICES</a
+        >
+        section to confirm your request and send it to us.
+      </p>
+      <p class="text-center text-primary my-5">
+        Do you want to have another Accommodation request?
+      </p>
+
+      <div class="row-flex">
+        <div style="width: 45%">
+          <a
+            class="nav-link link text-primary display-4 btn-secondary custom-btn"
+            style="float: right"
+            (click)="reBooking()"
+            >Yes</a
+          >
+        </div>
+
+        <div style="width: 45%">
+          <a
+            class="nav-link link text-primary display-4 btn-secondary custom-btn"
+            [routerLink]="['/home']"
+            routerLinkActive="router-link-active"
+            >No</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

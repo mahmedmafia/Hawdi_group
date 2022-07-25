@@ -1,54 +1,74 @@
 @import "../../../../clientAreaSharedStyle.scss";
 @import "../../../../../../assets/theme";
 
-.form-inputs{
+.form-inputs {
   margin-bottom: 1.2em;
 }
-.inputs-container
-{
+.inputs-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;
-  &.hide{
+  &.hide {
     display: none;
   }
 }
 #transporationForm {
-  .transporationFormContainer{
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap:20px;
-      align-items: center;
+  .transporationFormContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
   }
 }
-.vehicleSwitches{
+.vehicleSwitches {
   position: relative;
-  &::before{
+  &::before {
     position: absolute;
     content: "";
-    top:50%;
-    width:100%;
-    height:2% ;
+    top: 50%;
+    width: 100%;
+    height: 2%;
     background-color: $secondaryColor;
     z-index: 1;
   }
-  button{
+  button {
     padding: 15px;
-    margin:0px 18px;
+    margin: 0px 18px;
     position: relative;
     z-index: 2;
-    &:first-child{
-      margin-left:30px ;
+    &:first-child {
+      margin-left: 30px;
     }
-
   }
-  button:hover,button:active,button.active{
-    color:$light-baseColor !important;
+  button:hover,
+  button:active,
+  button.active {
+    color: $light-baseColor !important;
   }
 }
-@media screen and (max-width:768px) {
-  .transporationFormContainer,.inputs-container{
+@media screen and (max-width: 768px) {
+  .transporationFormContainer,
+  .inputs-container {
     grid-template-columns: 1fr !important;
     align-items: stretch;
   }
+}
+
+.request {
+  width: 50%;
+  margin: auto;
+}
+
+.my-services {
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 14px;
+}
+
+.custom-btn{
+  padding: 3px 10px !important;
+  text-align: center;
+  width: 100px;
+  border-radius: 15px;
+
 }

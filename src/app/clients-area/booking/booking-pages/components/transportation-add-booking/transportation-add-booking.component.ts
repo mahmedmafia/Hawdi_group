@@ -170,9 +170,16 @@ export class TransportationAddBookingComponent
       fieldValues: [{ name: 'Yes', value: true }, { name: 'No', value: false }]
     }
   };
+
+
+  bookingDone: boolean = false;
+
+
   constructor(public formValidator: FormValidatorService,private fb:FormBuilder) {
     super();
   }
+
+
 
   ngOnInit(): void {
     this.transportationServiceForm = this.formValidator.createForm(Object.values(this.transportationControllers));
@@ -188,7 +195,15 @@ export class TransportationAddBookingComponent
     this.initializeVehiclesForm(vehicleNumbers);
 
 
+    
+
+
   }
+
+  reBooking(){
+    this.bookingDone = false;
+  }
+
   initializeVehiclesForm(vehicleNumbers:number){
     this.vehiclesForm=this.fb.group({
       vehicles:this.fb.array([])

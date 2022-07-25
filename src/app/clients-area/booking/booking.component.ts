@@ -24,6 +24,7 @@ export class BookingComponent implements OnInit {
     console.log('booking');
   }
   onClickBook(serviceName:string){
-    this.route.navigate(['add/'+serviceName.trim().toLowerCase()],{relativeTo:this.activatedRoute})
+
+    this.route.navigate(['/services/'+serviceName.trim().toLowerCase()],{relativeTo:this.activatedRoute})
   }
 }

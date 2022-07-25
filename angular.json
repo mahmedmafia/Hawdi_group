@@ -45,7 +45,8 @@
               "src/assets/theme/css/style.css",
               "src/assets/mobirise/css/mbr-additional.scss",
               "src/assets/theme.scss",
-              "src/assets/styles.scss"
+              "src/assets/styles.scss",
+              "src/styles.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",

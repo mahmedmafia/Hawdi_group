@@ -8,13 +8,18 @@ import { TransportationServiceComponent } from './transportation-service/transpo
 import { BookingStepsComponent } from './booking-steps/booking-steps.component';
 import { ServiceActionSectionComponent } from './service-action-section/service-action-section.component';
 import { HomeModule } from '../home/home.module';
-
+import {AccomodationServiceComponent} from './accomodation-service/accomodation-service.component'
 
 const publicServicesRoute: Route[] = [
 
   {
     path: 'transportation',
     component:TransportationServiceComponent,
+  },
+
+  {
+    path: 'accommodation',
+    component:AccomodationServiceComponent,
   },
 
 ]
@@ -24,7 +29,8 @@ const publicServicesRoute: Route[] = [
     AboutSerivceComponent,
     TransportationServiceComponent,
     BookingStepsComponent,
-    ServiceActionSectionComponent
+    ServiceActionSectionComponent,
+    AccomodationServiceComponent
   ],
   imports: [
     CommonModule,

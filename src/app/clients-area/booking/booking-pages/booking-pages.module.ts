@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { TransportationAddBookingComponent } from './components/transportation-add-booking/transportation-add-booking.component';
 import { TransportationAddBookingModule } from './components/transportation-add-booking/transportation-add-booking.module';
+import { AccommodationAddBookingComponent } from './components/accommodation-add-booking/accommodation-add-booking.component';
 
 const booknigPageRoutes: Routes = [
   {
@@ -12,6 +13,14 @@ const booknigPageRoutes: Routes = [
       import(
         './components/transportation-add-booking/transportation-add-booking.module'
       ).then((m) => TransportationAddBookingModule),
+  },
+  {
+    path: 'accommodation',
+    component:AccommodationAddBookingComponent,
+    loadChildren: () =>
+      import(
+        './components/accommodation-add-booking/accomodation-add-booking.module'
+      ).then((m) => m.AccomodationAddBookingModule),
   },
 ];
 

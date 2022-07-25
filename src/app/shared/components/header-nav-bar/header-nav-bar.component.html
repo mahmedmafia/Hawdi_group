@@ -49,20 +49,20 @@
           </ng-container>
           <ng-template #elseTemplate>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4" [routerLink]="['/home']">Home</a>
+              <a class="nav-link link text-primary display-4" (click)="navigateToScrollHome('homeHeader')">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4">About</a>
+              <a class="nav-link link text-primary display-4" (click)="navigateToScrollHome('about')">About</a>
 
             </li>
             <li class="nav-item megamenu">
-              <a class="nav-link link text-primary display-4" [routerLink]="['/client/services']">Services</a>
+              <a class="nav-link link text-primary display-4" [routerLink]="['/client/bookings']">Services</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4">FAQs</a>
+              <a class="nav-link link text-primary display-4" (click)="navigateToScrollHome('faq')">FAQs</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link link text-primary display-4">Contact</a>
+              <a class="nav-link link text-primary display-4" (click)="navigateToScrollHome('contact')">Contact</a>
             </li>
             <li class="nav-item d-flex align-items-center">
               <span class="text-primary pe-1 nav-link link " style="font-size:1.2em ;"><i class="fa fa-user-o fa-2x"></i></span>

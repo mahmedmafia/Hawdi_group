@@ -12,4 +12,7 @@ export class AboutSectionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+  
+
 }
