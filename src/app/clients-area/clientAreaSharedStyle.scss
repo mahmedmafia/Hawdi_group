@@ -7,6 +7,9 @@ section {
     }
   }
 }
+.table-title {
+  margin-bottom: 20px;
+}
 table{
   width:100%;
   background: transparent !important;
@@ -20,6 +23,7 @@ table{
     color:$light-baseColor;
 
   }
+
 }
 
 .text-underline{

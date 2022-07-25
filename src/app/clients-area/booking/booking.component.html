@@ -3,13 +3,13 @@
     <h2 class="text-center text-primary my-5">Book a Service</h2>
 
     <div  id="serivces">
-      <div class="m-3 service" *ngFor="let service of services">
+      <div class="m-3 service" *ngFor="let service of services" (click)="onClickBook(service.name)">
         <div class="img-container " >
           <div class="mbr-overlay" ></div>
           <img [src]="service.image">
           <span id="servName" class="text-primary d-inline-block">{{service.name}}</span>
         </div>
-        <button class="text-center  w-100 h-40 text-primary  bg-secondary py-2" (click)="onClickBook(service.name)">Book</button>
+        <button class="text-center  w-100 h-40 text-primary  bg-secondary py-2" >Book</button>
       </div>
     </div>
   </div>

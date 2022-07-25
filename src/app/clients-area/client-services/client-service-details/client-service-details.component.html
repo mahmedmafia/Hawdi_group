@@ -1,110 +1,36 @@
 <section class="bg-lightDark text-primary">
   <div class="container">
-    <h2 class="title text-center mb-5">My Service</h2>
-    <div class="row mb-4">
-      <div class="col-lg-3 col-md-5">Service: Transporattion</div>
-      <div class="col-lg-3 offset-md-1 offset-lg-0 col-md-5">
-        ReuqestNo: TC23232
-      </div>
-      <div class="col-lg-3 col-md-5">Request Date: 00/00/2022</div>
-      <div class="col-lg-3 offset-md-1 offset-lg-0 col-md-5">
-        Request Time: Request Time:
-      </div>
-    </div>
-    <div class="row mb-2 " *ngFor="let service of servicesArr;let i=index">
+    <h2 class="title text-center mb-5">{{pageTitle}}</h2>
+    <app-service-details-header></app-service-details-header>
+    <ng-container *ngFor="let service of servicesArr;let i=index">
+      <div class="row mb-2 ">
         <div class="row mb-4  ">
           <div class="col-12 text-center bg-secondary py-2">Vehicle 1</div>
         </div>
         <div class="row serv-detail">
-          <div class="col-lg-3">
+          <div class="col-md-6 col-lg-3 order-lg-1">
             <div class="img-container">
               <img src="../../../../assets/images/services/Transportation.png" />
             </div>
           </div>
-          <div class="col-lg-6">
-            <div class="row">
-              <h5 class="table-title">Request Details</h5>
-              <div class="col-lg-6">
-                <table>
-                  <tr>
-                    <td>Vehicle type:</td>
-                    <td>Sedan</td>
-                  </tr>
-                  <tr>
-                    <td>Vehicle brand:</td>
-                    <td>Mercedes</td>
-                  </tr>
-                  <tr>
-                    <td>Delivery city:</td>
-                    <td>Riyadh</td>
-                  </tr>
-                  <tr>
-                    <td>Delivery date:</td>
-                    <td>06/05/2022</td>
-                  </tr>
-                  <tr>
-                    <td>No. of days:</td>
-                    <td>7</td>
-                  </tr>
-                </table>
-              </div>
-              <div class="col-lg-6" id="additonalData">
-                <table>
-                  <tr>
-                    <td>Destination from:</td>
-                    <td>Location</td>
-                  </tr>
-                  <tr>
-                    <td>Destination to:</td>
-                    <td>Location</td>
-                  </tr>
-                  <tr>
-                    <td>From :10:00Pm</td>
-                    <td>To : 09:45 AM</td>
-                  </tr>
-                  <tr>
-                    <td>Attachments:</td>
-                    <td>Yes</td>
-                  </tr>
-                  <tr>
-                    <td>Notes:</td>
-
-                  </tr>
-                  <tr>
-                    <td colspan="2">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                      do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                      Ut enim ad minim veniam, quis.
-                    </td>
-                  </tr>
-                </table>
-              </div>
-            </div>
+          <div class="col-lg-6 col-12 order-md-last mt-md-4 mt-lg-0 order-lg-2">
+            <app-transportation-service-details-item></app-transportation-service-details-item>
           </div>
-
-          <div class="col-lg-3">
-            <h5 class="table-title">Cost calculation :</h5>
-            <table>
-              <tr>
-                <td>Total Cost:</td>
-                <td>4567 SAR</td>
-              </tr>
-              <tr>
-                <td>Disccount:</td>
-                <td>450 SAR</td>
-              </tr>
-              <tr>
-                <td>Tax %14:</td>
-                <td>350 SAR</td>
-              </tr>
-              <tr>
-                <td>Total:</td>
-                <td>350 SAR</td>
-              </tr>
-            </table>
+          <div class="col-md-6  col-lg-3 order-lg-3">
+            <app-service-details-cost></app-service-details-cost>
           </div>
         </div>
       </div>
+    </ng-container>
+    <div class="row mb-5  ">
+      <app-grand-total-display></app-grand-total-display>
+    </div>
+    <div class="row justify-content-center py-4">
+      <div class="col-md-4">
+        <button class="btn btn-block btn-secondary rounded-pill text-primary justify-content-center" (click)="backToServicesPage()">Back</button>
+
+      </div>
     </div>
 
+  </div>
 </section>

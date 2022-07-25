@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BookingComponent } from './booking.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BookingHistoryComponent } from '../booking-history/booking-history.component';
+import { BookingHistoryDetailsComponent } from '../booking-history/booking-history-details/booking-history-details.component';
 
 const routes: Routes = [
   {
@@ -12,7 +13,6 @@ const routes: Routes = [
   },
   {
     path: 'history',
-    component: BookingHistoryComponent,
     loadChildren: () =>
       import('../booking-history/booking-history.module').then(
         (m) => m.BookingHistoryModule
