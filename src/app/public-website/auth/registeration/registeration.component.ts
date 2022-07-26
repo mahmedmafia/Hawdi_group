@@ -51,15 +51,19 @@ export class RegisterationComponent extends BaseForm implements OnInit {
       fieldName: 'phone',
       defaultValue: '',
       displayName: 'Phone',
-      fieldType: 'tel',
+      fieldType: 'text',
       validators: [
         {
           validatorFn: Validators.required,
           message: this.validationMsg.required,
         },
+        // {
+        //   validatorFn: Validators.pattern(this.patterns.phonePattern),
+        //   message: this.validationMsg.phonePattern,
+        // },
         {
-          validatorFn: Validators.pattern(this.patterns.phonePattern),
-          message: this.validationMsg.phonePattern,
+          validatorFn: Validators.maxLength(12),
+          message: this.validationMsg.maxLength + '12',
         },
       ],
     },
@@ -106,6 +110,13 @@ export class RegisterationComponent extends BaseForm implements OnInit {
         return { value: res };
       }),
       displayName: '',
+      validators: [
+        {
+          validatorFn: Validators.required,
+          message: this.validationMsg.required,
+        },
+      
+      ],
     },
     NationalUnifiedNo: {
       fieldName: 'NationalUnifiedNo',
@@ -116,14 +127,14 @@ export class RegisterationComponent extends BaseForm implements OnInit {
           validatorFn: Validators.required,
           message: this.validationMsg.required,
         },
-        {
-          validatorFn: Validators.minLength(17),
-          message: this.validationMsg.minLength + '17',
-        },
-        {
-          validatorFn: Validators.maxLength(17),
-          message: this.validationMsg.maxLength + '17',
-        },
+        // {
+        //   validatorFn: Validators.minLength(17),
+        //   message: this.validationMsg.minLength + '17',
+        // },
+        // {
+        //   validatorFn: Validators.maxLength(17),
+        //   message: this.validationMsg.maxLength + '17',
+        // },
       ],
     },
     password: {
