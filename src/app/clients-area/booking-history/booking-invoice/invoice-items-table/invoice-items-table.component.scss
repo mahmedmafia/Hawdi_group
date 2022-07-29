@@ -1,0 +1,49 @@
+@import "../../../clientAreaSharedStyle.scss";
+@import "../../../../../assets/theme.scss";
+::ng-deep .mat-table {
+  tbody {
+    border-bottom: 2px solid $baseColor;
+  }
+}
+::ng-deep .mat-row {
+  height: 70px !important;
+}
+.invoice-items {
+  th {
+    background-color: $secondaryColor !important ;
+  }
+}
+.cost-container {
+  display: flex;
+  justify-content: flex-end;
+  .cost-table {
+    width: 25%;
+    margin-right: 25%;
+    table {
+      tr {
+        display: flex;
+        justify-content: space-between;
+        &:not(:nth-of-type(n + 4)) {
+          border-bottom: 1px solid $baseColor;
+        }
+        td:first-of-type {
+          flex: 1.5;
+        }
+        td:not(:first-of-type) {
+          flex: 0.8;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 787px) {
+  .cost-container{
+    justify-content: center;
+  }
+  .cost-table {
+    width: 80% !important;
+    margin: 30px 0px !important;
+    margin:auto
+  }
+}

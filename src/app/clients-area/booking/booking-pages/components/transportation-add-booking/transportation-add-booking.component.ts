@@ -7,6 +7,7 @@ import {
   FormField,
   FormValidatorService,
 } from 'src/app/shared/services/form-validator.service';
+import { TransporationServiceHandlerService } from 'src/app/shared/services/transporation-service-handler.service';
 
 @Component({
   selector: 'app-transportation-add-booking',
@@ -19,129 +20,7 @@ export class TransportationAddBookingComponent
   transportationServiceForm!: FormGroup;
   vehiclesForm!:FormGroup;
   selectedVehicle=0;
-  vehicleControllers:formControllers={
-    type:{
-      fieldName:'type',
-      displayName:'',
-      defaultValue:null,
-      fieldValues:[
-        {name:'Sedan',value:'1'},
-        {name:'Coupe',value:'1'},
-        {name:'SPORTS CAR',value:'1'},
-        {name:'STATION WAGON',value:'1'},
-      ],
-      validators:[
-        {validatorFn:Validators.required,message:this.validationMsg.required}
-        ]
-    },
-    brand:{
-      fieldName:'brand',
-      displayName:'',
-      defaultValue:null,
-      fieldValues:[
-        {name:'Hundai',value:'1'},
-        {name:'Bmw',value:'2'},
-        {name:'Sad',value:'3'},
-        {name:'Hundai',value:'4'},
-      ],
-      validators:[
-      {validatorFn:Validators.required,message:this.validationMsg.required}
-      ]
-    },
-    model:{
-      fieldName:'model',
-      displayName:'',
-      defaultValue:null,
-      fieldValues:[
-        {name:'2016',value:'1'},
-        {name:'2017',value:'2'},
-        {name:'2019',value:'3'},
-        {name:'2022',value:'4'},
-      ],
-      validators:[
-        {validatorFn:Validators.required,message:this.validationMsg.required}
-        ]
-    },
-    city:{
-      fieldName:'city',
-      displayName:'',
-      defaultValue:null,
-      fieldValues:[
-        {name:'riyadh',value:'1'},
-        {name:'gaddah',value:'2'},
-        {name:'riyadh',value:'1'},
-        {name:'gaddah',value:'2'},
-      ],
-      validators:[
-        {validatorFn:Validators.required,message:this.validationMsg.required}
-        ]
-    },
-    bookingDuration: {
-      displayName: 'Number of days?',
-      fieldName: 'bookingDuration',
-      fieldType: 'number',
-      defaultValue: '',
-      validators: [
-        {
-          validatorFn: Validators.required,
-          message: this.validationMsg.required,
-        },
-        {
-          validatorFn: Validators.max(4),
-          message: this.validationMsg.max + '4'
-        },
-        {
-          validatorFn: Validators.min(1),
-          message: this.validationMsg.min + '1'
-        }
-      ],
-    },
-    startDate: {
-      displayName: 'Chose starting date.',
-      fieldName: 'startDate',
-      defaultValue: '',
-      validators: [
-        {
-          validatorFn: Validators.required,
-          message: this.validationMsg.required,
-        },
-        {
-          validatorFn: CustomValidators.dateInTheFuture,
-          message:"Date Should be in the Future"
-        },
-
-      ],
-    },
-    destinationFrom: {
-      displayName: 'Destination from',
-      fieldName: 'destinationFrom',
-      defaultValue: '',
-      validators: [
-        {
-          validatorFn: Validators.required,
-          message: this.validationMsg.required,
-        },
-      ],
-    },
-    destinationTo: {
-      displayName: 'Destination to',
-      fieldName: 'destinationTo',
-      defaultValue: '',
-      validators: [
-        {
-          validatorFn: Validators.required,
-          message: this.validationMsg.required,
-        },
-      ],
-    },
-    notes: {
-      displayName: 'Do you have any notes?',
-      fieldName: 'notes',
-      defaultValue: false,
-      fieldValues: [{ name: 'Yes', value: true }, { name: 'No', value: false }],
-
-    },
-  }
+  vheiclesAdded:boolean=false;
   transportationControllers: formControllers = {
     vehicleNumbers: {
       displayName: 'Number of vehicles?',
@@ -175,7 +54,7 @@ export class TransportationAddBookingComponent
   bookingDone: boolean = false;
 
 
-  constructor(public formValidator: FormValidatorService,private fb:FormBuilder) {
+  constructor(public formValidator: FormValidatorService,private fb:FormBuilder,private transportationServ:TransporationServiceHandlerService) {
     super();
   }
 
@@ -185,6 +64,7 @@ export class TransportationAddBookingComponent
     this.transportationServiceForm = this.formValidator.createForm(Object.values(this.transportationControllers));
     this.fromControllers = this.transportationServiceForm;
     this.fieldObject = this.transportationControllers;
+
   }
   onSubmit() {
     if (!this.transportationServiceForm.valid) {
@@ -192,44 +72,21 @@ export class TransportationAddBookingComponent
       return;
     }
     const vehicleNumbers=this.transportationServiceForm.value.vehicleNumbers;
-    this.initializeVehiclesForm(vehicleNumbers);
+    this.transportationServ.onVheicleFormInit(vehicleNumbers)
 
-
-    
-
+    this.vheiclesAdded=true;
 
   }
 
   reBooking(){
+    this.transportationServiceForm.reset();
     this.bookingDone = false;
   }
+  onBookingDone(event:any){
+    this.bookingDone=true;
+    this.transportationServ.onVheicleFormInit(0);
+  }
 
-  initializeVehiclesForm(vehicleNumbers:number){
-    this.vehiclesForm=this.fb.group({
-      vehicles:this.fb.array([])
-    });
-    for(let i=0;i<vehicleNumbers;i++){
-      this.addVehicle();
-    }
-  }
-  addVehicle(){
-    this.vehiclesArr.push(this.formValidator.createForm(Object.values(this.vehicleControllers)));
-  }
-  get vehiclesArr(){
-    return this.vehiclesForm.controls['vehicles'] as FormArray;
-  }
-  removeItems(i: number) {
-    this.vehiclesArr.removeAt(i);
-  }
-  convertVehiclesControls(index:number,key:string){
-    return this.vehiclesArr.controls[index].get(key) as FormControl;
-  }
-  convertVehiclesObject(key:string){
-    return this.vehicleControllers[key];
-  }
-  onSwitchVehicle(index:number){
-    this.selectedVehicle=index;
-  }
 }
 export interface formControllers {
   [key: string]: FormField;

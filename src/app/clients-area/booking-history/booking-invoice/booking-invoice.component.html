@@ -1,0 +1,33 @@
+<section class="bg-lightDark text-primary">
+  <div class="container">
+    <div class="header text-center mb-3">
+      <h2 class="mb-5">History</h2>
+
+    </div>
+    <div class="px-md-5" *ngIf="!isInvoiceSent;else elseTemplate">
+
+      <app-booking-invoice-details></app-booking-invoice-details>
+      <div class="row justify-content-center">
+        <div class="offset-md-2 col-md-10 col-lg-8">
+          <button class="btn btn-secondary py-3 px-3 me-md-3  me-lg-4 actionBtn"
+            (click)="print()">
+            Print Invoice
+          </button>
+          <button class="btn btn-secondary py-3 px-3 actionBtn" (click)="sendInvoice()">
+            Send to Email
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #elseTemplate>
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-6">
+        <span class="text-primary text-center w-100 d-block mb-4 env-container"><i class="fa fa-envelope fa-5x"></i></span>
+        <p class="text-center mb-4"> Your invoice has been sent to your email</p>
+        <button (click)="isInvoiceSent=false" class="btn btn-secondary p-3 actionBtn m-auto d-block">Back</button>
+      </div>
+    </div>
+  </ng-template>
+
+</section>

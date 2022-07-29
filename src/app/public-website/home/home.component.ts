@@ -9,9 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private route : ActivatedRoute,private scroller: ViewportScroller) { 
+  constructor(private route : ActivatedRoute,private scroller: ViewportScroller) {
     this.route.params.subscribe(params => {
-      console.log(params);
       if(params['section'] !== ''){
         this.scroller.scrollToAnchor(params['section']);
       }else if(!params['section']){

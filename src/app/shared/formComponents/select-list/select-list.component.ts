@@ -7,18 +7,22 @@ import { BaseField } from '../../components/baseField';
   styleUrls: ['./select-list.component.scss']
 })
 export class SelectListComponent extends BaseField implements OnInit {
-  selectedInput=null;
-  @Input() isDefaultLabelOption:boolean=false;
+  selectedInput = null;
+  @Input() isDefaultLabelOption: boolean = false;
   constructor() {
     super();
   }
 
   ngOnInit(): void {
-    if(this.fieldObject.defaultValue){
-      this.selectedInput=this.fieldObject.defaultValue ;
-    }
-    if(!this.isDefaultLabelOption){
-      this.selectedInput=this.fieldObject.fieldValues[0].value;
+    if (!this.isUpdate) {
+      if (this.fieldObject.defaultValue) {
+        this.selectedInput = this.fieldObject.defaultValue;
+      }
+      if (!this.isDefaultLabelOption) {
+        this.selectedInput = this.fieldObject.fieldValues[0].value;
+      }
+    }else{
+      this.selectedInput=this.formControlRef.value;
     }
   }
   @Output() selectedTypeEvent = new EventEmitter<string>();

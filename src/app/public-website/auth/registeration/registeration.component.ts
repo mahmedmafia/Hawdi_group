@@ -115,7 +115,7 @@ export class RegisterationComponent extends BaseForm implements OnInit {
           validatorFn: Validators.required,
           message: this.validationMsg.required,
         },
-      
+
       ],
     },
     NationalUnifiedNo: {
@@ -228,6 +228,7 @@ export class RegisterationComponent extends BaseForm implements OnInit {
     selectedControl?.markAsTouched();
     selectedControl?.markAsDirty();
     otherControl?.reset();
+    otherControl?.clearValidators();
 
     selectedControl?.updateValueAndValidity();
     otherControl?.updateValueAndValidity();

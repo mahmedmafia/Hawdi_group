@@ -1,0 +1,13 @@
+@import "../../../../../assets/theme.scss";
+table {
+  width: 100%;
+  tr {
+    display: flex;
+    background:$secondaryColor ;
+    text-align: center;
+    padding: 6px 2px;
+    td {
+      flex: 1;
+    }
+  }
+}

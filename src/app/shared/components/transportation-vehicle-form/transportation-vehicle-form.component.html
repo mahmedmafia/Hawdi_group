@@ -1,19 +1,26 @@
-<div class="vehicleSwitches mb-5" *ngIf="vehiclesArr">
-  <ng-container *ngFor="let vehicleItem of vehiclesArr.controls;let i=index">
-    <button class="bg-dark text-info" (click)="onSwitchVehicle(i)"
-      [ngClass]="selectedVehicle==i?'active':''">Vehicle {{i+1}}</button>
+<div class="cost-display" *ngIf="vehiclesArr.controls">
+  <div class="cost-container">
+  <app-service-item-cost ></app-service-item-cost>
+</div>
+</div>
+
+<div class="vehicleSwitches mb-5">
+  <ng-container *ngFor="let vehicleItem of vehiclesArr.controls; let i = index">
+    <button class="bg-dark text-info" (click)="onSwitchVehicle(i)" [ngClass]="selectedVehicle == i ? 'active' : ''">
+      Vehicle {{ i + 1 }}
+    </button>
   </ng-container>
 </div>
 <form *ngIf="vehiclesForm" [formGroup]="vehiclesForm" (ngSubmit)="onSubmit()">
   <div formArrayName="vehicles">
     <div class="inputs-container" *ngFor="let vehicleItem of vehiclesArr.controls; let i = index"
-      [ngClass]="selectedVehicle!=i?'hide':''">
+      [ngClass]="selectedVehicle != i ? 'hide' : ''">
       <ng-container>
         <div class="form-inputs" [formGroupName]="i">
           <label class="mb-2">What is the vehicle type?</label>
           <app-select-list [formControlRef]="convertVehiclesControls(i, 'type')"
             [fieldErrors]="formValidator.formErrors" [fieldObject]="convertVehiclesObject('type')"
-            [isDefaultLabelOption]="true">
+            [isDefaultLabelOption]="true" [isUpdate]="isUpdate">
             <ng-container defaultLabelOption>Choose</ng-container>
           </app-select-list>
         </div>
@@ -21,16 +28,15 @@
           <label class="mb-2">What is the vehicle brand?</label>
           <app-select-list [formControlRef]="convertVehiclesControls(i, 'brand')"
             [fieldErrors]="formValidator.formErrors" [fieldObject]="convertVehiclesObject('brand')"
-            [isDefaultLabelOption]="true">
+            [isDefaultLabelOption]="true" [isUpdate]="isUpdate">
             <ng-container defaultLabelOption>Choose</ng-container>
-
           </app-select-list>
         </div>
         <div class="form-inputs" [formGroupName]="i">
           <label class="mb-2">What is the vehicle brand?</label>
           <app-select-list [formControlRef]="convertVehiclesControls(i, 'model')"
             [fieldErrors]="formValidator.formErrors" [fieldObject]="convertVehiclesObject('model')"
-            [isDefaultLabelOption]="true">
+            [isDefaultLabelOption]="true" [isUpdate]="isUpdate">
             <ng-container defaultLabelOption>Choose</ng-container>
           </app-select-list>
         </div>
@@ -38,15 +44,14 @@
           <label class="mb-2">City of delivery?</label>
           <app-select-list [formControlRef]="convertVehiclesControls(i, 'city')"
             [fieldErrors]="formValidator.formErrors" [fieldObject]="convertVehiclesObject('city')"
-            [isDefaultLabelOption]="true">
+            [isDefaultLabelOption]="true" [isUpdate]="isUpdate">
             <ng-container defaultLabelOption>Choose</ng-container>
-
           </app-select-list>
         </div>
         <div class="form-inputs" [formGroupName]="i">
-          <app-base-input [fieldObject]="convertVehiclesObject('bookingDuration')"
-            [formControlRef]="convertVehiclesControls(i,'bookingDuration')"
-            [fieldErrors]="formValidator.formErrors" class="text-primary"></app-base-input>
+          <app-base-input [fieldObject]="convertVehiclesObject('bookingDuration')" [formControlRef]="
+              convertVehiclesControls(i, 'bookingDuration')
+            " [fieldErrors]="formValidator.formErrors" class="text-primary"></app-base-input>
         </div>
         <div class="form-inputs" [formGroupName]="i">
           <app-date-now [formControlRef]="convertVehiclesControls(i, 'startDate')"
@@ -54,25 +59,46 @@
           </app-date-now>
         </div>
         <div class="form-inputs" [formGroupName]="i">
-          <app-open-map [formControlRef]="convertVehiclesControls(i, 'destinationFrom')"
-            [fieldErrors]="formValidator.formErrors" [fieldObject]="convertVehiclesObject('destinationFrom')">
+          <app-open-map [formControlRef]="
+              convertVehiclesControls(i, 'destinationFrom')
+            " [fieldErrors]="formValidator.formErrors" [fieldObject]="convertVehiclesObject('destinationFrom')" [isUpdate]="isUpdate">
           </app-open-map>
         </div>
         <div class="form-inputs" [formGroupName]="i">
           <app-open-map [formControlRef]="convertVehiclesControls(i, 'destinationTo')"
-            [fieldErrors]="formValidator.formErrors" [fieldObject]="convertVehiclesObject('destinationTo')">
+            [fieldErrors]="formValidator.formErrors" [fieldObject]="convertVehiclesObject('destinationTo')" [isUpdate]="isUpdate">
           </app-open-map>
         </div>
-        <div class="form-inputs" [formGroupName]="i">
+        <div class="form-inputs" style="position:relative ;" [formGroupName]="i">
           <h6 class="mb-2">Do you have any notes</h6>
-          <app-radio [fieldObject]="convertVehiclesObject('notes')"
-            [formControlRef]="convertVehiclesControls(i,'notes')" [fieldErrors]="formValidator.formErrors"
-            [fill]="true" class="text-primary"></app-radio>
+          <app-radio [fieldObject]="convertVehiclesObject('hasNotes')"
+            [formControlRef]="convertVehiclesControls(i, 'hasNotes')" [fieldErrors]="formValidator.formErrors"
+            [fill]="true" class="text-primary" (onChange)="onNotesChanged($event,i)"></app-radio>
+            <div class="mt-lg-3" style="position:absolute ;width:100%" *ngIf="convertVehiclesControls(i,'hasNotes').value">
+          <textarea  style="width:100%;padding:15px;border-radius: 25px;" rows="3"
+             formControlName="notes" ></textarea>
+            <span class="text-danger" *ngIf="convertVehiclesControls(i,'notes').errors?.required && convertVehiclesControls(i,'notes').touched">this field is Required</span>
+            </div>
         </div>
+        <div class="form-inputs" [formGroupName]="i">
+          <h6 class="mb-2">Extra Documents To Attatch</h6>
+          <app-radio [fieldObject]="convertVehiclesObject('hasDocuments')"
+            [formControlRef]="convertVehiclesControls(i, 'hasDocuments')" [fieldErrors]="formValidator.formErrors"
+            [fill]="true" class="text-primary" (onChange)="onDocumentsChanged($event,i)"></app-radio>
+            <ng-container *ngIf="convertVehiclesControls(i,'hasDocuments').value">
+              <app-file-input
+              [fieldObject]="convertVehiclesObject('documents')"
+              [formControlRef]="convertVehiclesControls(i, 'documents')"
+              [fieldErrors]="formValidator.formErrors"
+              class="text-primary"
+            ></app-file-input>
+          </ng-container>
+        </div>
+
       </ng-container>
     </div>
     <div>
-      <button class="btn btn-secondary m-auto  rounded-pill" type="submit" [disabled]="vehiclesForm.invalid">
+      <button class="btn btn-secondary m-auto rounded-pill" type="submit">
         Confirm and save
       </button>
     </div>

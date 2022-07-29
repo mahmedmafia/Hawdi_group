@@ -1,0 +1,22 @@
+table{
+  tr{
+    td:first-of-type{
+      flex: .8;
+    }
+    td:not(:first-of-type){
+      flex:1
+    }
+  }
+}
+@media screen and (max-width:787px) {
+  table{
+    tr{
+      td:first-of-type{
+        flex:.8
+      }
+      td:not(:first-of-type){
+        flex:1 !important;
+      }
+    }
+  }
+}

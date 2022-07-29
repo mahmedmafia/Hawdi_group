@@ -26,6 +26,9 @@ import { GoogleMapComponent } from './formComponents/google-map/google-map.compo
 import { GooglePlaceModule } from 'ngx-google-places-autocomplete';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TransportationVehicleFormComponent } from './components/transportation-vehicle-form/transportation-vehicle-form.component';
+import { FileInputComponent } from './formComponents/file-input/file-input.component';
+import { ServiceItemCostComponent } from './components/service-item-cost/service-item-cost.component';
 
 
 @NgModule({
@@ -44,6 +47,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     DateNowComponent,
     OpenMapComponent,
     GoogleMapComponent,
+    TransportationVehicleFormComponent,
+    FileInputComponent,
+    ServiceItemCostComponent
   ],
   imports: [
     CommonModule,
@@ -79,7 +85,12 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatTableModule,
     DateNowComponent,
     OpenMapComponent,
-    MatSnackBarModule
+    MatSnackBarModule,
+    TransportationVehicleFormComponent,
+    FileInputComponent,
+    LogoComponent,
+
+
   ]
 })
 export class SharedModule { }

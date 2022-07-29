@@ -1,4 +1,17 @@
 @import "../../../../assets/theme";
+.cost-display{
+  width: 100%;
+  display: flex;
+  justify-content: end;
+ }
+ .cost-container{
+   border: 2px solid $secondaryColor;
+   border-radius: 15px;
+   padding-top: 5px;
+   // padding: 10px 5px;
+   margin-bottom: 20px;
+   width:30%;
+ }
 .form-inputs{
   margin-bottom: 1.2em;
 }
@@ -41,4 +54,10 @@
     grid-template-columns: 1fr !important;
     align-items: stretch;
   }
+  .cost-container{
+    width: 100% !important;
+    margin: auto;
+    margin-bottom: 20px;
+  }
 }
+

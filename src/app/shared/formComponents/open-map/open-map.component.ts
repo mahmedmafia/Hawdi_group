@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Subscription } from 'rxjs';
 // import { CoordinatesInterface } from '../../../../dashboard/seller/seller';
@@ -11,7 +11,7 @@ import { CoordinatesInterface, GoogleMapComponent } from '../google-map/google-m
   templateUrl: './open-map.component.html',
   styleUrls: ['./open-map.component.scss']
 })
-export class OpenMapComponent extends BaseField implements OnDestroy {
+export class OpenMapComponent extends BaseField implements OnDestroy,OnInit {
   coordinates!: CoordinatesInterface;
   lat_long: any;
   subscription!: Subscription;
@@ -22,28 +22,16 @@ export class OpenMapComponent extends BaseField implements OnDestroy {
     }
   }
 
-  constructor(private dialog: MatDialog) {
+  constructor() {
     super();
   }
-
-  openMap() {
-    const dialogRef = this.dialog.open(GoogleMapComponent, {
-      height: '80%',
-      width: '50%'
-    });
-
-    this.subscription = dialogRef.afterClosed().subscribe(async result => {
-      this.coordinates = result;
-      this.lat_long =
-        this.coordinates.latitude + ',' + this.coordinates.longitude;
-      console.log('lat long >>', this.lat_long);
-
-      console.log('coords >>>', this.coordinates);
-      const jsonObj = JSON.stringify(this.lat_long);
-      this.formControlRef.setValue(jsonObj);
-      console.log('json obj >>>>', jsonObj);
-    });
+  ngOnInit(): void {
+    if(this.isUpdate){
+      this.lat_long=this.formControlRef.value;
+    }
   }
+
+
 
 
 }

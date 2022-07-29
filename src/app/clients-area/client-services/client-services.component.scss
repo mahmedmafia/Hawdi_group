@@ -1,1 +1,14 @@
 @import "../clientAreaSharedStyle.scss";
+.actionBtn{
+  border-radius: 25px;
+  width:44% !important;
+  margin: 3%;
+  display: inline-block;
+}
+.icon-container{
+  i{
+    background:-webkit-linear-gradient(118deg, #e5ff0c 20%, #767909 45%, #ffeb00 71%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

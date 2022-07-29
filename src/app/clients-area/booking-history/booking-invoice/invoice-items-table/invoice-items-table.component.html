@@ -1,0 +1,69 @@
+<table mat-table [dataSource]="dataSource" class="invoice-items mb-3">
+
+
+  <ng-container matColumnDef="No">
+    <th mat-header-cell *matHeaderCellDef> No. </th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Item">
+    <th mat-header-cell *matHeaderCellDef class="text-center">Item</th>
+    <td mat-cell *matCellDef="let element" class="text-center"> {{element.Item}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Description">
+    <th mat-header-cell *matHeaderCellDef class="text-center"> Description</th>
+    <td mat-cell *matCellDef="let element" class="text-center"> {{element.Description }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="Qty">
+    <th mat-header-cell *matHeaderCellDef class="text-center"> Qty </th>
+    <td mat-cell *matCellDef="let element" class="text-center"> {{element.Qty}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="U.Price">
+    <th mat-header-cell *matHeaderCellDef class="text-center">U.Price</th>
+    <td mat-cell *matCellDef="let element" class="text-center"> {{element['U.Price'] }} </td>
+  </ng-container>
+  <ng-container matColumnDef="U.Discount%">
+    <th mat-header-cell *matHeaderCellDef class="text-center"> U.Discount%</th>
+    <td mat-cell *matCellDef="let element" class="text-center"> {{element['U.Discount%'] }} </td>
+  </ng-container>
+  <ng-container matColumnDef="Total">
+    <th mat-header-cell *matHeaderCellDef class="text-center"> Total</th>
+    <td mat-cell *matCellDef="let element" class="text-center"> {{element.Total }} </td>
+  </ng-container>
+  <ng-container matColumnDef="Discount Value">
+    <th mat-header-cell *matHeaderCellDef class="text-center"> Discount Value</th>
+    <td mat-cell *matCellDef="let element" class="text-center"> {{element.discount }} </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+<div class="cost-container">
+  <div class="cost-table">
+    <table>
+      <tr class="mb-1 py-2">
+        <td>Sub Total</td>
+        <td>6900</td>
+      </tr>
+      <tr class="mb-1 py-2">
+        <td>VAT</td>
+        <td>15%</td>
+      </tr>
+
+      <tr class="mb-1 py-2">
+        <td>Grand Total</td>
+        <td>7500</td>
+      </tr>
+      <tr class="mb-1 py-2">
+        <td>Withholding Tax</td>
+        <td>0</td>
+      </tr>
+      <tr class="bg-secondary px-3 py-2">
+        <td>Total</td>
+        <td>7500</td>
+      </tr>
+    </table>
+  </div>
+</div>

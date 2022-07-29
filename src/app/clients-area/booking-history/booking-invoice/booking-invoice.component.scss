@@ -1,0 +1,12 @@
+@import "../../clientAreaSharedStyle.scss";
+.actionBtn {
+  border-radius: 25px !important;
+  width: 45% !important;
+}
+.env-container{
+  i{
+    border-radius: 50% ;
+    padding: 20px;
+    border: 8px solid $light-baseColor;
+  }
+}

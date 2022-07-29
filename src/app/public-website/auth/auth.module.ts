@@ -8,6 +8,7 @@ import { AuthVerifyPhoneComponent } from './auth-verify-phone/auth-verify-phone.
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { LoginComponent } from './login/login.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 const authRoutes: Route[] = [
   {
     path: '',
@@ -31,6 +32,10 @@ const authRoutes: Route[] = [
     path: 'login',
     component: LoginComponent,
   },
+  {
+    path: 'change-password',
+    component: ChangePasswordComponent,
+  },
 ]
 
 @NgModule({
@@ -38,7 +43,8 @@ const authRoutes: Route[] = [
     AuthComponent,
     AuthVerifyPhoneComponent,
     ForgetPasswordComponent,
-    LoginComponent
+    LoginComponent,
+    ChangePasswordComponent
   ],
   imports: [
     CommonModule,

@@ -1,6 +1,6 @@
 
 
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BaseClientServiceTable } from '../BaseClientServiceTable';
 
@@ -11,7 +11,7 @@ import { BaseClientServiceTable } from '../BaseClientServiceTable';
   styleUrls: ['./requested-services-table.component.scss']
 })
 export class RequestedServicesTableComponent extends BaseClientServiceTable implements OnInit {
-
+  @Output() onRowConfirmRequest:EventEmitter<number>=new EventEmitter<number>();
   displayedColumns = [
     'No', 'Service', 'Request Time', 'Request Date', 'Details', 'Edit Request', 'Delete Request', 'Confirm Request'
   ];
@@ -41,5 +41,7 @@ export class RequestedServicesTableComponent extends BaseClientServiceTable impl
 
   ngOnInit(): void {
   }
-
+  onConfirmRequest(id: number) {
+    this.onRowConfirmRequest.emit(id);
+  }
 }

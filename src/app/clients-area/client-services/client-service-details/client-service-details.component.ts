@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-service-details',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientServiceDetailsComponent implements OnInit {
   servicesArr=new Array(2);
-  constructor() { }
+  @Input() pageBackLink='/client/services';
+  @Input() pageTitle='My Service';
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
+  backToServicesPage(){
 
+    this.router.navigate([this.pageBackLink]);
+  }
 }

@@ -6,28 +6,34 @@ import { ConfirmedServicesTableComponent } from './confirmed-services-table/conf
 import { RequestedServicesTableComponent } from './requested-services-table/requested-services-table.component';
 import { ClientServiceDetailsComponent } from './client-service-details/client-service-details.component';
 import { RouterModule, Routes } from '@angular/router';
-const routes: Routes = [
-  {
-    path: '',
-    component: ClientServicesComponent,
-    pathMatch:'full',
-  },
-  {
-    path: ':id',
-    component: ClientServiceDetailsComponent,
-  }
-]
+import { ClientServiceEditComponent } from './client-service-edit/client-service-edit.component';
+import { ServiceDetailsCostComponent } from './client-service-details/service-details-cost/service-details-cost.component';
+import { GrandTotalDisplayComponent } from './client-service-details/grand-total-display/grand-total-display.component';
+import { ServiceDetailsHeaderComponent } from './client-service-details/service-details-header/service-details-header.component';
+import { TransportationServiceDetailsItemComponent } from './client-service-details/transportation-service-details-item/transportation-service-details-item.component';
+import { ClientServicesRoutingModule } from './client-services-routing.module';
+
 @NgModule({
   declarations: [
     ClientServicesComponent,
     RequestedServicesTableComponent,
     ConfirmedServicesTableComponent,
-    ClientServiceDetailsComponent
+    ClientServiceDetailsComponent,
+    ClientServiceEditComponent,
+    ServiceDetailsCostComponent,
+    GrandTotalDisplayComponent,
+    ServiceDetailsHeaderComponent,
+    TransportationServiceDetailsItemComponent
   ],
   imports: [
     CommonModule,
     SharedModule,
-    RouterModule.forChild(routes)
+   ClientServicesRoutingModule
+  ],
+  exports:[
+    ClientServiceDetailsComponent,
+    TransportationServiceDetailsItemComponent
+
   ]
 })
 export class ClientServicesModule { }

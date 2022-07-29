@@ -9,6 +9,8 @@ export class BaseClientServiceTable {
 
   }
   onEditService(id: number) {
+    this.router.navigate(['edit/'+id],{relativeTo:this.route})
+
   }
   onViewService(id: number) {
     this.router.navigate([id],{relativeTo:this.route})
@@ -17,7 +19,5 @@ export class BaseClientServiceTable {
   onDeleteService(id: number) {
 
   }
-  onConfirmRequest(id: number) {
 
-  }
 }

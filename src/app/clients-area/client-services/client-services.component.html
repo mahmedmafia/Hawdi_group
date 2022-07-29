@@ -1,18 +1,30 @@
 <section class="bg-lightDark text-primary">
   <div class="container">
-    <div class="header text-center mb-5">
+    <div class="header text-center mb-5 pt-5">
       <h2 class="mb-5">My Services</h2>
-      <p class="desc m-auto">
+      <p class="desc m-auto" *ngIf="!isRequestConfirmClicked">
         All your bookings and requested services will be saved here, note that none of your services will be processed
         unless you confirm them.
       </p>
     </div>
-    <div class="mb-5">
-      <app-requested-services-table [dataSource]="requestedServices"></app-requested-services-table>
+    <div class="mb-5 d-flex flex-column" *ngIf="!isRequestConfirmClicked">
+      <app-requested-services-table [dataSource]="requestedServices" class="mb-5"
+        (onRowConfirmRequest)="onConfirmServ($event)"></app-requested-services-table>
+      <app-confirmed-services-table [dataSource]="confirmedServices"></app-confirmed-services-table>
     </div>
-
-    <app-confirmed-services-table [dataSource]="confirmedServices" class="mb-5"></app-confirmed-services-table>
-
   </div>
+  <ng-container *ngIf="isRequestConfirmClicked">
+    <div class="row justify-content-center  pb-5">
+      <div class="col-12 col-md-8 col-lg-6 pb-5">
+        <span class="icon-container mb-3 text-center w-100 d-block"><i
+            class="fa fa-exclamation-triangle fa-5x"></i></span>
+        <p class="mb-5 text-center"> You are about to confirm your booking, this action is not undoable.</p>
+        <div class="col-12 col-lg-8 m-auto">
+          <button class="btn btn-secondary  p-2 actionBtn ">Confirm</button>
+          <button class="btn btn-secondary p-2 actionBtn " (click)="isRequestConfirmClicked=false">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </ng-container>
 
 </section>

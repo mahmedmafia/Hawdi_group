@@ -78,3 +78,6 @@ export abstract class BaseForm {
     this.from.reset();
   }
 }
+export interface formControllers{
+  [key:string]:FormField
+}

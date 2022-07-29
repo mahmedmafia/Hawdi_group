@@ -2,7 +2,7 @@
 <div class="form-group radio-group" [ngClass]="fill?'fill':''" >
   <ng-container *ngFor="let fieldValue of fieldObject.fieldValues" >
       <span>
-      <input type="radio" [formControl]="formControlRef" [name]="fieldObject.fieldName" [value]="fieldValue.value">
+      <input (change)="radioChanged($event)" type="radio" [formControl]="formControlRef" [name]="fieldObject.fieldName" [value]="fieldValue.value">
       <label>{{fieldValue?.name? fieldValue.name:fieldValue.value}}</label>
     </span>
   </ng-container>

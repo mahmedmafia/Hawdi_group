@@ -191,7 +191,6 @@ export class CustomValidators {
         dateNow.setMinutes(0);
         dateNow.setSeconds(0);
         dateNow.setMilliseconds(0);
-        //console.log('generated date', dateNow.toISOString());
         let valid: Boolean;
         if (dateFromValue < dateNow) {
           valid = false;

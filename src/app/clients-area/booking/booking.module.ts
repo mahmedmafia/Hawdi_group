@@ -12,7 +12,6 @@ const routes: Routes = [
   },
   {
     path: 'history',
-    component: BookingHistoryComponent,
     loadChildren: () =>
       import('../booking-history/booking-history.module').then(
         (m) => m.BookingHistoryModule

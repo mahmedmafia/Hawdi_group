@@ -1,0 +1,13 @@
+<div class="form-group">
+  <label for="file" *ngIf="fieldObject.displayName">{{fieldObject.displayName}}</label>
+  <input [formControl]="formControlRef" id="fileUpload" type="file" multiple #fileInput class="form-control file"
+    (change)="onFileChange($event)">
+  <div *ngIf="formControlRef.touched && formControlRef.invalid" class="text-danger mb-2">
+    <div *ngIf="formControlRef.errors && formControlRef.errors.required">File is required.</div>
+  </div>
+  <div class="mt-2 p-1" *ngIf="myFiles.length">
+    <p *ngFor="let file of myFiles;let i=index" class="d-flex justify-content-between py-1"><span>-
+        {{file.name}}</span><span (click)="deleteFile(i)" class="text-dark bg-info me-1 text-center p-1"
+        style="width:20px;font-weight: 800;cursor: pointer;">X</span></p>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-booking-history',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./booking-history.component.scss'],
 })
 export class BookingHistoryComponent implements OnInit {
+  constructor(private router:Router,private activatedRoute:ActivatedRoute){}
   displayedColumns = [
     'No',
     'Service Type',
@@ -63,11 +65,13 @@ export class BookingHistoryComponent implements OnInit {
       Status: 'Closed',
     },
   ];
-  constructor() {}
 
   ngOnInit(): void {}
-  onViewService(rowId: number) {}
+  onViewService(rowId: number) {
+    this.router.navigate(['details/'+rowId],{relativeTo:this.activatedRoute});
+  }
   onClickInvoice(invoiceNumber:number){
+    this.router.navigate(['invoice/'+invoiceNumber],{relativeTo:this.activatedRoute});
 
   }
 }

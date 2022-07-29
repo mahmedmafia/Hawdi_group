@@ -1,0 +1,52 @@
+<p class="desc m-auto text-center mb-5">
+  Here you will find all your bookings and its details, including payment
+  details
+</p>
+<div class="row">
+  <div class="offset-lg-2 col-lg-10">
+    <div class="row mb-5">
+      <div class="col-12 col-md-6 col-lg-8 invoice-info">
+        <h1>INVOICE</h1>
+        <div class="col-10 info-container">
+          <app-invoice-info></app-invoice-info>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4">
+        <h1 class="text-secondary logo">
+          Hwadi <span style="font-weight: 800">GO</span>
+        </h1>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-md-6">
+        <table class="customer-info">
+          <tr>
+            <td>Customer Name</td>
+            <td>Ahmed Yahya El Fayed</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-12">
+        <app-invoice-items-table></app-invoice-items-table>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <h3 class="mb-3">Service Details</h3>
+      <div class="col-12 col-md-8 ms-md-3">
+        <app-invoice-transportation-details></app-invoice-transportation-details>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-12">
+        <app-invoice-terms-conditions></app-invoice-terms-conditions>
+      </div>
+    </div>
+    <div class="row mb-5">
+      <div class="col-12">
+        <app-invoice-footer></app-invoice-footer>
+      </div>
+    </div>
+  </div>
+</div>

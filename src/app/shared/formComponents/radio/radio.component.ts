@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { BaseField } from '../../components/baseField';
 
 @Component({
@@ -7,12 +7,16 @@ import { BaseField } from '../../components/baseField';
   styleUrls: ['./radio.component.scss']
 })
 export class RadioComponent extends BaseField implements OnInit {
-  @Input() fill=false;
+  @Input() fill = false;
+  @Output() onChange: EventEmitter<any> = new EventEmitter<any>();
   constructor() {
     super();
-   }
+  }
 
   ngOnInit(): void {
+  }
+  radioChanged(e: any) {
+    this.onChange.emit(this.formControlRef.value);
   }
 
 }

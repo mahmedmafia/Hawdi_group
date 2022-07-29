@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { BaseForm } from 'src/app/shared/components/baseForm';
+import { BaseForm, formControllers } from 'src/app/shared/components/baseForm';
 import { CustomValidators } from 'src/app/shared/components/custom-validators';
 import { Validators } from 'src/app/shared/components/validators';
 import { FormField, FormValidatorService } from 'src/app/shared/services/form-validator.service';
@@ -11,56 +11,36 @@ import { FormField, FormValidatorService } from 'src/app/shared/services/form-va
   styleUrls: ['./forget-password.component.scss']
 })
 export class ForgetPasswordComponent extends BaseForm implements OnInit {
-
-  forgetPasswordForm!: FormGroup;
-  constructor(public formValidator: FormValidatorService) {
+  resetPasswordForm!: FormGroup;
+  isEmailSent: boolean = false;
+  constructor(public formValdiator: FormValidatorService) {
     super();
   }
-  controllers: { [key: string]: FormField } = {
-    password: {
-      fieldName: 'password',
-      fieldType: 'password',
-      displayName: 'Password',
+  controllers: formControllers = {
+    "email": {
+      displayName: 'Email',
+      fieldName: 'email',
       defaultValue: '',
       validators: [
-        {
-          validatorFn: Validators.required,
-          message: this.validationMsg.required,
-        },
-        {
-          validatorFn: Validators.minLength(8),
-          message: this.validationMsg.minLength + '8',
-        },
-        {
-          validatorFn: CustomValidators.complexPassword('s'),
-          message: this.validationMsg.complexPassword,
-        },
-      ],
-    },
-    confirmPassword: {
-      fieldName: 'confirmPassword',
-      fieldType: 'password',
-      displayName: 'Confirm Password',
-      defaultValue: '',
-      validators: [
-        {
-          validatorFn: Validators.required,
-          message: this.validationMsg.required,
-        },
-        {
-          validatorFn: CustomValidators.confirmPasswordWith('password'),
-          message: this.validationMsg.confirmValue + 'password',
-        },
-      ],
-    },
+        { validatorFn: Validators.required, message: this.validationMsg.required },
+        { validatorFn: Validators.email, message: this.validationMsg.invalidEmail }
+      ]
+    }
   }
   ngOnInit(): void {
-    this.forgetPasswordForm = this.formValidator.createForm(Object.values(this.controllers));
-    this.fromControllers = this.forgetPasswordForm;
+    this.resetPasswordForm = this.formValdiator.createForm(Object.values(this.controllers));
+    this.fromControllers = this.resetPasswordForm;
     this.fieldObject = this.controllers;
   }
+  submit() {
+    if(!this.resetPasswordForm){
+      this.formValdiator.forceShowErrors();
+      return;
+    }
 
-  onSubmit() {
 
+    this.isEmailSent=true;
+    this.resetPasswordForm.reset();
   }
+
 }

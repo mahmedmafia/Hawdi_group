@@ -1,0 +1,11 @@
+@import "../../../clientAreaSharedStyle.scss";
+table{
+  tr{
+    display:flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    td{
+      flex:1;
+    }
+  }
+}

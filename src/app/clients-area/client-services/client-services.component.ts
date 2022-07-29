@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./client-services.component.scss']
 })
 export class ClientServicesComponent implements OnInit {
-
+  isRequestConfirmClicked:boolean=false;
   services = [
     { id: 1, name: 'Transportation', RequestDate: new Date(2019, 3, 5, 12, 25, 4), status: 'pending' },
     { id: 1, name: 'Transportation', RequestDate: new Date(2019, 3, 5, 12, 25, 4), status: 'pending' },
@@ -28,5 +28,7 @@ export class ClientServicesComponent implements OnInit {
       }
     })
   }
-
+  onConfirmServ(id:number){
+    this.isRequestConfirmClicked=true;
+  }
 }

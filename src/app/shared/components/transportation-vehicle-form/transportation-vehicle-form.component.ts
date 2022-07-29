@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormArray, FormBuilder, FormControl, FormGroup,Validators as Val } from '@angular/forms';
 import { BaseForm, formControllers } from 'src/app/shared/components/baseForm';
 import { CustomValidators } from 'src/app/shared/components/custom-validators';
 import { Validators } from 'src/app/shared/components/validators';
@@ -16,7 +16,9 @@ import { TransporationServiceHandlerService } from '../../services/transporation
 })
 export class TransportationVehicleFormComponent extends BaseForm implements OnInit {
   vehiclesForm!:FormGroup;
+  isUpdate=false;
   selectedVehicle=0;
+  @Output() formSumbitted:EventEmitter<any>=new EventEmitter();;
   vehicleControllers:formControllers={
     type:{
       fieldName:'type',
@@ -24,9 +26,9 @@ export class TransportationVehicleFormComponent extends BaseForm implements OnIn
       defaultValue:null,
       fieldValues:[
         {name:'Sedan',value:'1'},
-        {name:'Coupe',value:'1'},
-        {name:'SPORTS CAR',value:'1'},
-        {name:'STATION WAGON',value:'1'},
+        {name:'Coupe',value:'2'},
+        {name:'SPORTS CAR',value:'3'},
+        {name:'STATION WAGON',value:'4'},
       ],
       validators:[
         {validatorFn:Validators.required,message:this.validationMsg.required}
@@ -67,8 +69,8 @@ export class TransportationVehicleFormComponent extends BaseForm implements OnIn
       fieldValues:[
         {name:'riyadh',value:'1'},
         {name:'gaddah',value:'2'},
-        {name:'riyadh',value:'1'},
-        {name:'gaddah',value:'2'},
+        {name:'riyadh',value:'3'},
+        {name:'makkah',value:'4'},
       ],
       validators:[
         {validatorFn:Validators.required,message:this.validationMsg.required}
@@ -132,12 +134,27 @@ export class TransportationVehicleFormComponent extends BaseForm implements OnIn
         },
       ],
     },
-    notes: {
+    hasNotes: {
       displayName: 'Do you have any notes?',
-      fieldName: 'notes',
+      fieldName: 'hasNotes',
       defaultValue: false,
       fieldValues: [{ name: 'Yes', value: true }, { name: 'No', value: false }],
-
+    },
+    notes:{
+      displayName: '',
+      fieldName: 'notes',
+      defaultValue: '',
+    },
+    hasDocuments: {
+      displayName: 'Extra documentations to attach?',
+      fieldName: 'hasDocuments',
+      defaultValue: false,
+      fieldValues: [{ name: 'Yes', value: true }, { name: 'No', value: false }],
+    },
+    documents:{
+      displayName: '',
+      fieldName: 'documents',
+      defaultValue: [],
     },
   }
 
@@ -157,12 +174,22 @@ export class TransportationVehicleFormComponent extends BaseForm implements OnIn
         const lenDiff=this.vehiclesArr.length-res;
         this.vehiclesArr.controls.splice(0,lenDiff);
       }
+    });
+    this.transportationServ.onVheicleFormUpdate.subscribe(res=>{
+      this.initializeVehiclesForm(res.length);
+      this.isUpdate=true;
+      this.vehiclesArr.setValue(res);
+
     })
   }
 
 
   onSubmit() {
-    // const vehicleNumbers=this.transportationServiceForm.value.vehicleNumbers;
+    if(this.vehiclesForm.invalid){
+      this.formValidator.forceShowErrors();
+      return;
+    }
+    this.formSumbitted.emit(this.vehiclesForm.value);
 
   }
   initializeVehiclesForm(vehicleNumbers:number){
@@ -173,14 +200,12 @@ export class TransportationVehicleFormComponent extends BaseForm implements OnIn
   }
   addVehicle(){
     this.vehiclesArr.push(this.formValidator.createForm(Object.values(this.vehicleControllers)));
-    console.log('add');
   }
   get vehiclesArr(){
     return this.vehiclesForm.controls['vehicles'] as FormArray;
   }
   removeItems(i: number) {
     this.vehiclesArr.removeAt(i);
-    console.log('remove');
 
   }
   convertVehiclesControls(index:number,key:string){
@@ -192,5 +217,26 @@ export class TransportationVehicleFormComponent extends BaseForm implements OnIn
   onSwitchVehicle(index:number){
     this.selectedVehicle=index;
   }
+ onNotesChanged(event:any,controlIndex:number){
+  const control= this.convertVehiclesControls(controlIndex,'notes');
+  if(event==true){
+    control.setValidators([Val.required]);
+    control.markAllAsTouched();
 
+  }else{
+    control.reset();
+  }
+  control.updateValueAndValidity();
+ }
+ onDocumentsChanged(event:any,controlIndex:number){
+  const control= this.convertVehiclesControls(controlIndex,'documents');
+  if(event==true){
+    control.setValidators([Val.required]);
+    control.markAllAsTouched();
+
+  }else{
+    control.reset();
+  }
+  control.updateValueAndValidity();
+ }
 }
