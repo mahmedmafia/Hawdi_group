@@ -15,6 +15,7 @@ import { AuthSerice } from '../auth.service';
 export class AuthVerifyPhoneComponent extends BaseForm implements OnInit {
   verifyCodeForm!: FormGroup;
   registerdPhone:string='';
+  codeValid=true;
   constructor(public formValidator: FormValidatorService,private authServ:AuthSerice) {
     super();
   }
@@ -38,8 +39,10 @@ export class AuthVerifyPhoneComponent extends BaseForm implements OnInit {
   }
   ngOnInit(): void {
     const registerData=this.authServ.getRegisterData();
-    if(!registerData) //do some action
-    this.registerdPhone=registerData!.phone;
+    if(registerData){
+      this.registerdPhone=registerData!.phone || '';
+
+    }
     this.verifyCodeForm = this.formValidator.createForm(Object.values(this.controllers));
     this.fromControllers = this.verifyCodeForm;
     this.fieldObject = this.controllers;
@@ -79,6 +82,7 @@ export class AuthVerifyPhoneComponent extends BaseForm implements OnInit {
   }
   async verifyCode() {
     try{
+      this.sendCodeClicked=false;
     throw new Error('Verify Api Not Implemented');
     }catch(err:any){
       this.verifyFailed=err.message;

@@ -1,21 +1,33 @@
 <div id="verify">
 
   <h1 class="text-center  mb-5 pb-5" [ngClass]="verifyFailed ?'text-danger':'text-secondary'">
-    <ng-container *ngIf="verifyFailed;else elseHeaderTemplate">
-      Verification Code Error
+    <ng-container *ngIf="sendCodeClicked;else sendCodeNotClicked">
+      Verify Your Acount
     </ng-container>
-    <ng-template #elseHeaderTemplate>
-      Thank You!
+    <ng-template #sendCodeNotClicked>
+      <ng-container *ngIf="verifyFailed;else elseHeaderTemplate">
+        Verification Code Error
+      </ng-container>
+      <ng-template #elseHeaderTemplate>
+        Thank You!
+      </ng-template>
     </ng-template>
+
   </h1>
   <p  [ngClass]="verifyFailed ?'text-center':''" class="mt-3">
-    <ng-container *ngIf="verifyFailed;else elsePrTemplate">
-      The entered code is not correct, please make sure you entered the code correctly, or click on "re send code"
+    <ng-container *ngIf="sendCodeClicked;else elsePrCodeNotClicekd">
+      Your verification code was re sent to you, please check your SMS inbox
     </ng-container>
-    <ng-template #elsePrTemplate>
-      To activate your account, you need to enter the verification code we sent to
-      <b>your Phone Number.</b>
+    <ng-template #elsePrCodeNotClicekd>
+      <ng-container *ngIf="verifyFailed;else elsePrTemplate">
+        The entered code is not correct, please make sure you entered the code correctly, or click on "re send code"
+      </ng-container>
+      <ng-template #elsePrTemplate>
+        To activate your account, you need to enter the verification code we sent to
+        <b>your Phone Number.</b>
+      </ng-template>
     </ng-template>
+
   </p>
 
   <form *ngIf="verifyCodeForm" [formGroup]="verifyCodeForm" (submit)="onSubmit()">
