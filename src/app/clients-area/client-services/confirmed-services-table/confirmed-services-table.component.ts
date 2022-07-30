@@ -11,10 +11,13 @@ export class ConfirmedServicesTableComponent extends BaseClientServiceTable impl
   displayedColumns = [
     'No', 'Service', 'Request Time', 'Request Date', 'Details', 'Request Status'
   ];
-  constructor( router: Router,  activeRoute: ActivatedRoute) {
+  constructor( router: Router,  private activeRoute: ActivatedRoute) {
     super(router, activeRoute);
   }
 
   ngOnInit(): void {
+  }
+  onNavigateToStatus(id:number){
+    this.router.navigate(['status/'+id],{relativeTo:this.activeRoute});
   }
 }

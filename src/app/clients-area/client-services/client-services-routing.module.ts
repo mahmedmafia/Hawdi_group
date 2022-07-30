@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientServiceDetailsComponent } from './client-service-details/client-service-details.component';
 import { ClientServiceEditComponent } from './client-service-edit/client-service-edit.component';
+import { ClientServiceStatusComponent } from './client-service-status/client-service-status.component';
 import { ClientServicesComponent } from './client-services.component';
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'edit/:id',
     component: ClientServiceEditComponent,
+  },
+  {
+    path: 'status/:id',
+    component: ClientServiceStatusComponent,
   }
 ];
 

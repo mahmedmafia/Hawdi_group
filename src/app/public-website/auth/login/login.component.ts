@@ -34,10 +34,10 @@ export class LoginComponent extends BaseForm implements OnInit {
           validatorFn: Validators.required,
           message: this.validationMsg.required,
         },
-        {
-          validatorFn: Validators.pattern(this.patterns.phonePattern),
-          message: this.validationMsg.phonePattern,
-        },
+        // {
+        //   validatorFn: Validators.pattern(this.patterns.phonePattern),
+        //   message: this.validationMsg.phonePattern,
+        // },
       ],
     },
 

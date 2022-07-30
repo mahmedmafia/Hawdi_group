@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class BaseClientServiceTable {
   @Input() dataSource: any;
-  constructor(private router:Router,private route:ActivatedRoute) {
+  constructor(public router:Router,public route:ActivatedRoute) {
 
   }
   onEditService(id: number) {

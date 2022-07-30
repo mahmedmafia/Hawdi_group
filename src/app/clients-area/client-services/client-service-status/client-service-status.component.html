@@ -1,0 +1,28 @@
+<section class="bg-lightDark text-primary">
+  <div class="container">
+    <div class="header text-center mb-5 pt-5">
+      <h2 class="mb-4">My Services</h2>
+      <p class="desc m-auto">Your booking request is still pending</p>
+    </div>
+    <app-service-details-header class="d-block mb-5"></app-service-details-header>
+    <div class="row justify-content-center pb-5">
+      <div class="col-lg-6 pb-5">
+        <div class="status-Contaier mb-5">
+          <span class="icon-container active"><i class="fa fa-check-circle fa-4x"></i>
+            <span>RECIEVED</span>
+          </span>
+          <span class="icon-container active"><i class="fa fa-check-circle fa-4x"></i>
+            <span>APPROVED/ REJECTED</span>
+          </span>
+          <span class="icon-container"><i class="fa fa-check-circle fa-4x"></i>
+            <span>UNDER PROCESS</span>
+          </span>
+          <span class="icon-container"><i class="fa fa-check-circle fa-4x"></i>
+            <span>CLOSED</span>
+          </span>
+        </div>
+        <button class="btn btn-secondary mt-5 p-2 w-50 m-auto d-block" style="border-radius:25px ;" (click)="onClickBack()"> Back</button>
+      </div>
+    </div>
+  </div>
+</section>

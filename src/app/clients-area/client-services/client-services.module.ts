@@ -12,6 +12,7 @@ import { GrandTotalDisplayComponent } from './client-service-details/grand-total
 import { ServiceDetailsHeaderComponent } from './client-service-details/service-details-header/service-details-header.component';
 import { TransportationServiceDetailsItemComponent } from './client-service-details/transportation-service-details-item/transportation-service-details-item.component';
 import { ClientServicesRoutingModule } from './client-services-routing.module';
+import { ClientServiceStatusComponent } from './client-service-status/client-service-status.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ClientServicesRoutingModule } from './client-services-routing.module';
     ServiceDetailsCostComponent,
     GrandTotalDisplayComponent,
     ServiceDetailsHeaderComponent,
-    TransportationServiceDetailsItemComponent
+    TransportationServiceDetailsItemComponent,
+    ClientServiceStatusComponent
   ],
   imports: [
     CommonModule,
