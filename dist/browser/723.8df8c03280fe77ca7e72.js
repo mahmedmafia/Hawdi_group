@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_app=self.webpackChunkmy_app||[]).push([[723],{3723:(r,n,l)=>{l.r(n),l.d(n,{ClientProfileModule:()=>t});var u=l(8583),o=l(3018);let t=(()=>{class e{}return e.\u0275fac=function(i){return new(i||e)},e.\u0275mod=o.\u0275\u0275defineNgModule({type:e}),e.\u0275inj=o.\u0275\u0275defineInjector({imports:[[u.ez]]}),e})()}}]);

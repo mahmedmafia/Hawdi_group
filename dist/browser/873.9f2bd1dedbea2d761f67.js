@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkmy_app=self.webpackChunkmy_app||[]).push([[873],{873:(t,s,n)=>{n.r(s),n.d(s,{BookingHistoryModule:()=>a});var e=n(8583),u=n(2648),d=n(3018);let a=(()=>{class o{}return o.\u0275fac=function(r){return new(r||o)},o.\u0275mod=d.\u0275\u0275defineNgModule({type:o}),o.\u0275inj=d.\u0275\u0275defineInjector({imports:[[e.ez,u.m]]}),o})()}}]);
